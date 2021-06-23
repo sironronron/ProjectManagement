@@ -15,7 +15,7 @@
                     <div class="text-gray-600">{{ category.name }}</div>
                     <div class="flex items-center">
                         <!-- Edit Project Category -->
-                        <inertia-link :href="route('project_categories.edit', category.id)" class="cursor-pointer ml-6 text-sm text-gray-500">
+                        <inertia-link :href="route('project_categories.edit', category.unique_id)" class="cursor-pointer ml-6 text-sm text-gray-500">
                             Edit
                         </inertia-link>
                         <!-- Delet Project Category -->

@@ -31,7 +31,7 @@ class ProfileController extends Controller
      * @
      */
     public function update_notification_preference (Request $request, $id) {
-        $user = User::findOrFail($id);
+        $user = User::where('unique_id', $id)->first();
 
         $user->forceFill([
             'notification_new_task' => $request->notification_new_task,

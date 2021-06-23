@@ -26,7 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'location', 'bio', 'unique_id'
+        'name', 'email', 'password', 'location', 'bio', 'unique_id', 'phone_number', 'position', 'facebook_link', 'twitter_link', 'linkedin_link'
     ];
 
     /**
@@ -39,6 +39,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+        'id'
     ];
 
     /**
@@ -58,4 +59,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getRouteKeyName () {
+        return 'unique_id';
+    }
 }

@@ -68,6 +68,51 @@
                 <jet-textarea id="bio" class="mt-1 block w-full" v-model="form.bio" />
                 <jet-input-error :message="form.errors.bio" class="mt-2" />
             </div>
+
+            <!-- Additional Information -->
+            <div class="col-span-6 sm:col-span-4">
+                <hr>
+            </div>
+
+            <!-- Position -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="position" value="Position" />
+                <jet-input id="position" type="text" class="mt-1 block w-full" v-model="form.position" />
+                <jet-input-error :message="form.errors.position" class="mt-2" />
+            </div>
+
+            <!-- Phone Number -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="phone_number" value="Phone Number" />
+                <jet-input id="phone_number" type="text" class="mt-1 block w-full" v-model="form.phone_number" placeholder="(+63) 910-345-6789" />
+                <jet-input-error :message="form.errors.phone_number" class="mt-2" />
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="col-span-6 sm:col-span-4">
+                <hr>
+            </div>
+
+            <!-- Facebook Link -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="facebook_link" value="Facebook Link" />
+                <jet-input id="facebook_link" type="text" class="mt-1 block w-full" v-model="form.facebook_link" placeholder="username" />
+                <jet-input-error :message="form.errors.facebook_link" />
+            </div>
+
+            <!-- Twitter Link -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="twitter_link" value="Twitter Link" />
+                <jet-input id="twitter_link" type="text" class="mt-1 block w-full" v-model="form.twitter_link" placeholder="username" />
+                <jet-input-error :message="form.errors.twitter_link" />
+            </div>
+
+            <!-- LinkedIn Link -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="linkedin_link" value="LinkedIn Link" />
+                <jet-input id="linkedin_link" type="text" class="mt-1 block w-full" v-model="form.linkedin_link" placeholder="username" />
+                <jet-input-error :message="form.errors.linkedin_link" />
+            </div>
         </template>
     
         <template #actions>
@@ -114,7 +159,12 @@
                     email: this.user.email,
                     photo: null,
                     location: this.user.location,
-                    bio: this.user.bio
+                    bio: this.user.bio,
+                    position: this.user.position,
+                    phone_number: this.user.phone_number,
+                    facebook_link: this.user.facebook_link,
+                    twitter_link: this.user.twitter_link,
+                    linkedin_link: this.user.linkedin_link
                 }),
 
                 photoPreview: null,

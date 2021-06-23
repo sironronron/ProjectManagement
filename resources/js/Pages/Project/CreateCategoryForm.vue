@@ -22,18 +22,6 @@
                 <jet-textarea id="description" class="mt-1 block w-full" v-model="form.description" />
                 <jet-input-error :message="form.errors.description" class="mt-2" />
             </div>
-
-            <!-- Project Category Status -->
-            <div class="col-span-6 sm:col-span-4">
-                <div class="block">
-                    <label for="" class="flex items-center">
-                        <jet-checkbox name="status" v-model="form.status" />
-                        <span class="ml-4 text-sm text-gray-600">
-                            Publish
-                        </span>
-                    </label>
-                </div>
-            </div>
         </template>
 
         <template #actions>
@@ -86,7 +74,8 @@
             createNewCategory () {
                 this.form.post(route('project_categories.store'), {
                     errorBag:  'createNewCategory',
-                    preserveScroll: false
+                    preserveScroll: true,
+                    onSuccess: () => this.form.reset()
                 })
             }
         }

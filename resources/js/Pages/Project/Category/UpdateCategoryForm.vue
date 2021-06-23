@@ -86,7 +86,7 @@
 
         methods: {
             updateProjectCategory () {
-                this.form.put(route('', this.project_category), {
+                this.form.put(route('project_categories.update', this.project_category), {
                     errorBag: 'updateProjectCategory',
                     preserverScroll: true
                 });

@@ -96,7 +96,7 @@
 
         methods: {
             updateNotificationPreference () {
-                this.form.post(route('profile.update_notification_preferences', this.user.id), {
+                this.form.post(route('profile.update_notification_preferences', this.user.unique_id), {
                     errorBag: 'updateNotificationPreference',
                     preserveScroll: true
                 })

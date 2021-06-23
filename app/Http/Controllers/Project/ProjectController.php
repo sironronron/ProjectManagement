@@ -52,11 +52,16 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $project_category_lists = ProjectCategory::where('user_id', Auth::user()->id)
+            ->where('status', 1)
+            ->get(['id', 'name', 'status', 'unique_id', 'user_id']);
+
         $project_categories = ProjectCategory::where('user_id', Auth::user()->id)
-            ->get(['id', 'name', 'status', 'user_id']);
+            ->get(['id', 'name', 'status', 'unique_id', 'user_id']);
 
         return Inertia::render('Project/Create', [
-            'project_categories' => $project_categories
+            'project_categories' => $project_categories,
+            'project_category_lists' => $project_category_lists
         ]);
     }
 
@@ -68,20 +73,39 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:255|min:10|string',
-            'description' => 'required|max:255',
-            'start_date' => 'required|date|max:25',
-            'end_date' => 'required|date|max:25'
-        ]);
+        $message = [
+            'category_id.required' => 'The category field is required'
+        ];
+
+        if ($request->unscheduled != false) {
+            $this->validate($request, [
+                'name' => 'required|max:255|min:4|string|unique:projects,name',
+                'description' => 'required|max:255',
+                'category_id' => 'required'
+            ], $message);
+        }
+        
+        else {
+            $this->validate($request, [
+                'name' => 'required|max:255|min:4|string|unique:projects,name',
+                'description' => 'required|max:255',
+                'start_date' => 'required|date|max:25',
+                'end_date' => 'required|date|max:25',
+                'category_id' => 'required'
+            ], $message);
+        }
 
         $project = new Project;
+
+        // Get Category
+        $project_category = ProjectCategory::where('unique_id', $request->category_id)
+            ->first(['id']);
 
         try {
             $project->unique_id = Str::uuid();
             $project->user_id = Auth::user()->id;
             $project->name = $request->name;
-            $project->category_id = $request->category_id;
+            $project->category_id = $project_category->id;
             $project->description = $request->description;
             $project->start_date = $request->start_date;
             $project->end_date = $request->end_date;
@@ -89,13 +113,9 @@ class ProjectController extends Controller
             $project->unscheduled = $request->unscheduled;
             $project->team_id = Auth::user()->currentTeam->id;
 
-            if ($project->save()) {
-                return redirect()->route('projects.index')->with('success', 'Successfully created a new project!');
-            }
+            $project->save();
 
-            else {
-                return redirect()->back()->with('failed', 'Something went wrong!');
-            }
+            return redirect()->route('projects.index')->with('success', 'Successfully created a new project!');
         } catch (\Exception $e) {
             if (env('APP_DEBUG') == true) {
                 dd($e);

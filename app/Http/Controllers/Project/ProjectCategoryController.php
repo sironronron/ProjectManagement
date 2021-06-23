@@ -46,7 +46,7 @@ class ProjectCategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255|unique:project_categories',
+            'name' => 'required|max:255|unique:project_categories,name',
             'description' => 'max:1000',
         ]);
 
@@ -93,8 +93,8 @@ class ProjectCategoryController extends Controller
     public function edit(ProjectCategory $project_category)
     {
         $project_categories = ProjectCategory::where('user_id', Auth::user()->id)
-            ->where('id', '!=', $project_category->id)
-            ->get(['id', 'user_id', 'name', 'status']);
+            ->where('unique_id', '!=', $project_category->unique_id)
+            ->get(['id', 'user_id', 'name', 'unique_id', 'status']);
 
         return Inertia::render('Project/Category/Show', [
             'project_category' => $project_category,
@@ -109,9 +109,29 @@ class ProjectCategoryController extends Controller
      * @param  \App\Models\ProjectCategory  $projectCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProjectCategory $projectCategory)
+    public function update(Request $request, ProjectCategory $project_category)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255|unique:project_categories,name,' . $project_category->id,
+            'description' => 'max:1000'
+        ]);
+
+        try {
+            $project_category->name = $request->name;
+            $project_category->description = $request->description;
+            $project_category->status = $request->status;
+
+            $project_category->save();
+            
+            return redirect()->back()->with('success', "Updated project category: $project_category->name");
+        } catch (\Exception $e) {
+            if (env('APP_DEBUG') == true) {
+                dd($e);
+            }
+
+            \Log::error($e);
+            return redirect()->back()->with('failed', 'Something went wrong!');
+        }
     }
 
     /**
@@ -124,10 +144,15 @@ class ProjectCategoryController extends Controller
     {
         try {
             ProjectCategory::destroy($project_category->id);
+            return redirect()->back()->with('success', 'Project Category successfully deleted!');
         } catch (\Exception $e) {
-            dd($e);
-        }
+            if (env('APP_DEBUG') == true) {
+                dd($e);
+            }
 
-        return redirect()->back()->with('success', 'Project Category successfully deleted!');
+            \Log::error($e);
+
+            return redirect()->back()->with('failed', 'Something went wrong!');
+        }
     }
 }

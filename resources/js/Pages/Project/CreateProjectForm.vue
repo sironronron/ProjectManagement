@@ -23,10 +23,11 @@
                 <jet-label for="category_id" value="Project Category" />
                 <select class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" v-model="form.category_id">
                     <option value="">Select project category</option>
-                    <option v-for="(category, key) in project_categories" :key="key" :value="category.id">
+                    <option v-for="(category, key) in project_category_lists" :key="key" :value="category.unique_id">
                         {{ category.name }}
                     </option>
                 </select>
+                <jet-input-error :message="form.errors.category_id" class="mt-2" />
             </div>
 
             <!-- Bio -->
@@ -107,7 +108,7 @@
     import JetCheckbox from '@/Jetstream/Checkbox'
 
     export default {
-        props: ['project_categories'],
+        props: ['project_categories', 'project_category_lists'],
 
         components: {
             JetActionMessage,

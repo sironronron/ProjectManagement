@@ -26,11 +26,15 @@ class Project extends Model
         'remaining_days' => 'integer'
     ];
 
-    protected $appends = [
-        
+    protected $hidden = [
+        'id'
     ];
 
     public function creator () {
         return $this->belongsTo(User::class);        
+    }
+
+    public function getRouteKeyName () {
+        return 'unique_id';
     }
 }

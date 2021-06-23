@@ -19,11 +19,19 @@ class ProjectCategory extends Model
         'status'
     ];
 
+    protected $hidden = [
+        'id'
+    ];
+
     public function user () {
         return $this->belongsTo(User::class);
     }
 
     public function projects () {
         return $this->hasMany(Project::class);
+    }
+
+    public function getRouteKeyName () {
+        return 'unique_id';
     }
 }
