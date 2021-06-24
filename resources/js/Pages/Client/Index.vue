@@ -1,5 +1,7 @@
 <template>
     <app-layout>
+        <alerts :flash="$page.props.flash" />
+
         <inertia-head>
             <title>Clients - Project Management</title>
             <meta head-key="description" name="description" content="This is a page specific description" />
@@ -21,13 +23,15 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout'
     import ClientLists from './ClientLists'
+    import Alerts from '@/Jetstream/Alerts'
 
     export default {
         props: ['clients'],
 
         components: {
             AppLayout,
-            ClientLists
+            ClientLists,
+            Alerts
         }    
     }
 </script>

@@ -47,7 +47,6 @@
 
         methods: {
             deleteCategory(category) {
-                console.log(category)
                 this.$inertia.delete(route('clients.categories.destroy', category), {
                     preserveScroll: true
                 });

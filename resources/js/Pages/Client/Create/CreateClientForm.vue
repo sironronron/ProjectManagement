@@ -60,7 +60,7 @@
 
                 <jet-label for="category" value="Category" />
                 <select class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" v-model="form.category_id">
-                    <option value="">Select client category</option>
+                    <option disabled>Select client category</option>
                     <option v-for="(category, key) in categories" :key="key" :value="category.unique_id">
                         {{ category.name }}
                     </option>

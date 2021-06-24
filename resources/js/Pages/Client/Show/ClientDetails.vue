@@ -2,8 +2,11 @@
     <div>
         <div class="mb-4 bg-white rounded shadow p-5">
             <div class="flex flex-wrap items-center content-between">
-                <div class="w-16 h-16">
-                    <img class="w-full h-full" src="https://cdn.tuk.dev/assets/templates/olympus/projects.png">
+                <div v-if="client.company_photo != 'client_default.png'">
+                    <img class="w-16 h-16 object-cover" :src="client.company_photo" :alt="client.company_name">
+                </div>
+                <div v-else>
+                    <img src="https://cdn.tuk.dev/assets/templates/olympus/projects.png" :alt="client.company_name" class="w-16 h-16 object-cover">
                 </div>
                 <div class="pl-4">
                     <p class="font-medium">{{ client.company_name }}</p>
@@ -72,6 +75,14 @@
                     <li :class="route().current('clients.show.notes') || route().current('client_notes.edit') || route().current('client_notes.show') ? 'border-b-4 border-indigo-600' : 'cursor-pointer'"  class="cursor-pointer pb-3 text-yellow-600 px-5 flex items-center ml-2">
                         <p class="text-base text-gray-700">
                             Notes
+                        </p>
+                    </li>
+                </inertia-link>
+
+                <inertia-link :href="route('clients.show.settings', client.unique_id)" preserve-scroll>
+                    <li :class="route().current('clients.show.settings') ? 'border-b-4 border-indigo-600' : 'cursor-pointer'"  class="cursor-pointer pb-3 text-yellow-600 px-5 flex items-center ml-2">
+                        <p class="text-base text-gray-700">
+                            Settings
                         </p>
                     </li>
                 </inertia-link>

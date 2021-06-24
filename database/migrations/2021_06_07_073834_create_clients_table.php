@@ -45,7 +45,7 @@ class CreateClientsTable extends Migration
             $table->string('address');
             $table->enum('client_status', ['active', 'suspended']);
 
-            // Location
+            $table->softDeletes();            
             $table->timestamps();
         });
 

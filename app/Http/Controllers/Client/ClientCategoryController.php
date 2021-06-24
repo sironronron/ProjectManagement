@@ -143,10 +143,10 @@ class ClientCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ClientCategory $client_category)
     {
         try {
-            ClientCategory::destroy($id);
+            ClientCategory::destroy($client_category->id);
 
             return redirect()->back()->with('success', 'Client category successfully deleted!');
 

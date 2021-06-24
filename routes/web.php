@@ -82,6 +82,15 @@ Route::group(['middleware' => 'auth:sanctum', 'verified'], function () {
         Route::get('/show/{client}/files', [ClientController::class, 'show_files'])->name('clients.show.files');
         Route::get('/show/{client}/notes', [ClientController::class, 'show_notes'])->name('clients.show.notes');
 
+        // Edit
+        Route::get('/edit/{client}/settings', [ClientController::class, 'edit'])->name('clients.show.settings');
+
+        // Update
+        Route::put('/edit/{client}/settings/update', [ClientController::class, 'update'])->name('clients.show.settings.update');
+
+        // Delete
+        Route::delete('/delete/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+
         // Client User
         Route::group(['prefix' => 'user'], function () {
             Route::post('/new/store', [ClientUserController::class, 'store'])->name('client_users.store');

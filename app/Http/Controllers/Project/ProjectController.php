@@ -53,11 +53,10 @@ class ProjectController extends Controller
     public function create()
     {
         $project_category_lists = ProjectCategory::where('user_id', Auth::user()->id)
-            ->where('status', 1)
             ->get(['id', 'name', 'status', 'unique_id', 'user_id']);
 
         $project_categories = ProjectCategory::where('user_id', Auth::user()->id)
-            ->get(['id', 'name', 'status', 'unique_id', 'user_id']);
+            ->get(['name', 'status', 'unique_id', 'user_id']);
 
         return Inertia::render('Project/Create', [
             'project_categories' => $project_categories,

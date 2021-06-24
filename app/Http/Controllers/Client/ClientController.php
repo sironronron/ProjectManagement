@@ -253,7 +253,19 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = Client::where('unique_id', $id)
+            ->with(['category', 'owner'])
+            ->first();
+
+        $user = Auth::user();
+
+        $categories = ClientCategory::where('user_id', $user->id)
+            ->get(['unique_id', 'name', 'status']);
+    
+        return Inertia::render('Client/Edit/EditClient', [
+            'client' => $client,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -265,7 +277,54 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::where('unique_id', $id)
+            ->first();
+
+        $this->validate($request, [
+            'company_photo' => 'nullable|image|mimes:jpg,png,gif,jpeg|max:2048',
+            'company_name' => 'required|max:255|unique:clients,company_name,' . $client->id,
+            'company_phone_number' => 'required|max:24|string',
+            'category_id' => 'required',
+            'address' => 'string|max:255',
+        ]);
+
+        try {
+            if (!empty($request->company_photo)) {
+                // Save new image
+                $imageName = time() . '.' . $request->company_photo->extension();
+    
+                $request->company_photo->storeAs('public/company-photos', $imageName);
+                $client->company_photo = env('APP_URL') . '/storage/company-photos/' . $imageName;
+            }
+            
+            $client_category = ClientCategory::where('unique_id', $request->category_id)->first();
+            
+            $client->company_phone_number   = $request->company_phone_number;
+            $client->category_id            = $client_category->id;
+            $client->address                = $request->address;
+            $client->client_status          = $request->status;
+    
+            $client->update();
+
+            // Create new recent activity log
+            $data = [];
+            $data['client_id'] = $client->id;
+            $data['activity'] = 'Updated client settings!';
+            $data['link_title'] = null;
+            $data['link'] = null;
+
+            $client_recent_activity = new ClientRecentActivityController;
+            $client_recent_activity->store($data);
+
+            return redirect()->back()->with('success', 'Updated client information!');
+        } catch (\Exception $e) {
+            if (env('APP_DEBUG') == true) {
+                dd($e);
+            }
+            
+            \Log::error($e);
+            return redirect()->back()->with('failed', 'Something went wrong');
+        } 
     }
 
     /**
@@ -274,8 +333,18 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        //
+        try {
+            $client->delete();
+            return redirect()->route('clients.index')->with('success', "Deleted client $client->company_name!");
+        } catch (\Exception $e) {
+            if (env('APP_DEBUG') == true) {
+                dd($e);
+            }
+
+            \Log::error($e);
+            return redirect()->back()->with('failed', 'Something went wrong!');
+        }
     }
 }

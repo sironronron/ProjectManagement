@@ -1,5 +1,7 @@
 <template>
     <app-layout>
+        <alerts :flash="$page.props.flash" />
+
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ client.company_name }} <span class="text-gray-200 mx-5">|</span> Dashboard
@@ -79,6 +81,7 @@
     import ClientDetails from './ClientDetails'
     import Popup from '@/Mixins/Index'
     import Pagination from '@/Jetstream/Pagination'
+    import Alerts from '@/Jetstream/Alerts'
 
     export default {
         mixins: [Popup],
@@ -88,7 +91,8 @@
         components: {
             AppLayout,
             ClientDetails,
-            Pagination
+            Pagination,
+            Alerts
         },
     }
 </script>

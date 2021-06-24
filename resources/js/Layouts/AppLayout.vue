@@ -23,7 +23,7 @@
                                 <jet-nav-link :href="route('projects.index')" :active="route().current('projects.index') || route().current('projects.create')">
                                     Projects
                                 </jet-nav-link>
-                                <jet-nav-link :href="route('clients.index')" :active="route().current('clients.index') || route().current('clients.show') || route().current('clients.create') || route().current('clients.show.projects') || route().current('clients.show.files') || route().current('clients.show.users') || route().current('client_users.edit') || route().current('clients.show.notes') || route().current('client_notes.edit')">
+                                <jet-nav-link :href="route('clients.index')" :active="route().current('clients.index') || route().current('clients.show') || route().current('clients.create') || route().current('clients.show.projects') || route().current('clients.show.files') || route().current('clients.show.users') || route().current('client_users.edit') || route().current('clients.show.notes') || route().current('client_notes.edit') || route().current('clients.show.settings')">
                                     Clients
                                 </jet-nav-link>
                             </div>
