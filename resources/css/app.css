@@ -6,7 +6,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;900&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+}
 
 .checkbox:checked + .check-icon {
     display: flex;

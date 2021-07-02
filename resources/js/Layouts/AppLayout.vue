@@ -5,7 +5,7 @@
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="container mx-auto">
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
@@ -20,10 +20,10 @@
                                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </jet-nav-link>
-                                <jet-nav-link :href="route('projects.index')" :active="route().current('projects.index') || route().current('projects.create')">
+                                <jet-nav-link :href="route('projects.index')" :active="route().current('projects.index') || route().current('projects.create') || route().current('projects.show') || route().current('projects.show.teams') || route().current('projects.create.teams') || route().current('projects.show.milestones') || route().current('projects.create.milestones') || route().current('projects.edit.milestones') || route().current('projects.show.tasks')">
                                     Projects
                                 </jet-nav-link>
-                                <jet-nav-link :href="route('clients.index')" :active="route().current('clients.index') || route().current('clients.show') || route().current('clients.create') || route().current('clients.show.projects') || route().current('clients.show.files') || route().current('clients.show.users') || route().current('client_users.edit') || route().current('clients.show.notes') || route().current('client_notes.edit') || route().current('clients.show.settings')">
+                                <jet-nav-link :href="route('clients.index')" :active="route().current('clients.index') || route().current('clients.show') || route().current('clients.create') || route().current('clients.show.projects') || route().current('clients.show.files') || route().current('clients.show.users') || route().current('client_users.edit') || route().current('clients.show.notes') || route().current('client_notes.edit') || route().current('clients.show.settings') || route().current('client_notes.show')">
                                     Clients
                                 </jet-nav-link>
                             </div>
@@ -222,13 +222,13 @@
 
             <!-- Page Heading -->
             <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="container mx-auto py-6">
                     <slot name="header"></slot>
                 </div>
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="container mx-auto">
                 <slot></slot>
             </main>
         </div>

@@ -23,10 +23,16 @@ class AddDetailsInProjectsTable extends Migration
             $table->unsignedBigInteger('project_manager_id')->after('assigned_to');
             $table->foreign('project_manager_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->double('budget', 12, 2)->after('visibility');
-            $table->double('remaining_budget', 12, 2)->after('budget');
+            $table->double('budget', 12, 2)->after('visibility')->default(0);
+            $table->double('remaining_budget', 12, 2)->after('budget')->default(0);
 
-            $table->text('tags')->nullable()->after('remaining_budget');
+            $table->double('billing', 12, 2)->after('remaining_budget');
+            $table->enum('billing_rate', ['hourly', 'fixed_fee'])->after('billing')->default('hourly');
+
+            $table->string('estimated_hours')->after('billing_rate')->nullable();
+            $table->string('estimated_costs')->after('estimated_hours')->nullable();
+
+            $table->text('tags')->nullable()->after('estimated_costs');
 
             // Drop Team ID
             $table->dropForeign('projects_team_id_foreign');
@@ -52,6 +58,8 @@ class AddDetailsInProjectsTable extends Migration
             $table->dropColumn('project_manager_id');
 
             $table->dropColumn(['budget', 'remaining_budget']);
+
+            $table->dropColumn(['billing', 'billing_rate', 'estimated_hours', 'estimated_costs']);
 
             // Add Team ID
             $table->unsignedBigInteger('team_id');

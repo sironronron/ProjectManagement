@@ -4,8 +4,14 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\User\ProfileController;
+
+// Projects
 use App\Http\Controllers\Project\ProjectController;
+use App\Http\Controllers\Project\ProjectTeamController;
 use App\Http\Controllers\Project\ProjectCategoryController;
+use App\Http\Controllers\Project\ProjectMilestoneController;
+
+// Clients
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\ClientCategoryController;
 use App\Http\Controllers\Client\ClientUserController;
@@ -51,7 +57,10 @@ Route::group(['middleware' => 'auth:sanctum', 'verified'], function () {
         // Create
         Route::get('/create', [ProjectController::class, 'create'])->name('projects.create');
         Route::post('/store', [ProjectController::class, 'store'])->name('projects.store');
-   
+        
+        // Show
+        Route::get('/show/{unique_id}', [ProjectController::class, 'show'])->name('projects.show');
+
         // Project categories
         Route::group(['prefix' => 'categories'], function () {
             // Create
@@ -63,6 +72,39 @@ Route::group(['middleware' => 'auth:sanctum', 'verified'], function () {
 
             // Delete
             Route::delete('/delete/{project_category}', [ProjectCategoryController::class, 'destroy'])->name('project_categories.destroy');
+        });
+
+        // Project Teams
+        Route::group(['prefix' => 'teams'], function () {
+            // Index
+            Route::get('/{project}/show', [ProjectController::class, 'show_teams'])->name('projects.show.teams');
+        
+            // Create
+            Route::get('/{project}/create', [ProjectTeamController::class, 'create'])->name('projects.create.teams');
+            Route::post('/store', [ProjectTeamController::class, 'store'])->name('projects.store.teams');
+        });
+
+        // Project Milestones
+        Route::group(['prefix' => 'milestones'], function () {
+            // Index
+            Route::get('/{project}/show', [ProjectController::class, 'show_milestones'])->name('projects.show.milestones');
+            
+            // Create
+            Route::get('/{project}/create', [ProjectMilestoneController::class, 'create'])->name('projects.create.milestones');
+            Route::post('/store', [ProjectMilestoneController::class, 'store'])->name('projects.store.milestones');
+
+            // Edit
+            Route::get('/{project}/edit/{project_milestone}', [ProjectMilestoneController::class, 'edit'])->name('projects.edit.milestones');
+            Route::put('/{project}/edit/{project_milestone}/update', [ProjectMilestoneController::class, 'update'])->name('projects.update.milestones');
+        
+            // Delete
+            Route::delete('/delete/{project}', [ProjectMilestoneController::class, 'destroy'])->name('projects.destroy.milestones');
+        });
+
+        // Project Tasks
+        Route::group(['prefix' => 'tasks'], function () {
+            // Index
+            Route::get('/{project}/show', [ProjectController::class, 'show_tasks'])->name('projects.show.tasks');
         });
     });
 

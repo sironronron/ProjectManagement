@@ -9,9 +9,21 @@
         </template>
 
         <template #form>
+            <!-- Client -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="category_id" value="Client" />
+                <select class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" v-model="form.client_id">
+                    <option value="" disabled>Select client</option>
+                    <option v-for="(client, key) in clients" :key="key" :value="client.unique_id">
+                        {{ client.company_name }}
+                    </option>
+                </select>
+                <jet-input-error :message="form.errors.client_id" class="mt-2" />
+            </div>
+
             <!-- Name -->
             <div class="col-span-6 sm:col-span-4">
-                <h1 class="text-base mb-4">General Information</h1>                                    
+                <h1 class="text-base font-semibold mb-4">General Information</h1>                                    
 
                 <jet-label for="name" value="Name" />
                 <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autofocus />
@@ -22,7 +34,7 @@
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="category_id" value="Project Category" />
                 <select class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" v-model="form.category_id">
-                    <option value="">Select project category</option>
+                    <option value="" disabled>Select project category</option>
                     <option v-for="(category, key) in project_category_lists" :key="key" :value="category.unique_id">
                         {{ category.name }}
                     </option>
@@ -33,11 +45,38 @@
             <!-- Bio -->
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="description" value="Description" />
-                <jet-textarea id="description" class="mt-1 block w-full" v-model="form.description" />
+                <tiptap v-model="form.description" data-placeholder="Write something..." />
                 <jet-input-error :message="form.errors.description" class="mt-2" />
             </div>
 
+            <!-- Assigned -->
             <div class="col-span-6 sm:col-span-4">
+                <jet-label for="assigned" value="Assigned" />
+                <select class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" v-model="form.assigned_to_id">
+                    <option value="" disabled>Select person assigned</option>
+                    <option v-for="(assigned, key) in assignee" :key="key" :value="assigned.id">
+                        {{ assigned.name }}
+                    </option>
+                </select>
+                <jet-input-error :message="form.errors.assigned_to_id" class="mt-2" />
+            </div>
+
+            <!-- Project Manager -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="assigned" value="Project Manager" />
+                <select class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" v-model="form.project_manager_id">
+                    <option value="" disabled>Select project manager</option>
+                    <option v-for="(manager, key) in project_managers" :key="key" :value="manager.id">
+                        {{ manager.name }}
+                    </option>
+                </select>
+                <jet-input-error :message="form.errors.project_manager_id" class="mt-2" />
+            </div>
+
+            <!-- Timeline -->
+            <div class="col-span-6 sm:col-span-4">
+                <h1 class="text-base font-semibold mb-4">Project Timeline</h1>    
+
                 <div class="block">
                     <label class="flex items-center">
                         <jet-checkbox name="unscheduled" v-model:checked="form.unscheduled" />
@@ -46,13 +85,9 @@
                 </div>
             </div>
 
-            <!-- Timeline -->
-
             <!-- Start Date -->
             <template v-if="!form.unscheduled">
-                <div class="col-span-6 sm:col-span-4">
-                    <h1 class="text-base mb-4">Project Timeline</h1>         
-
+                <div class="col-span-6 sm:col-span-4">    
                     <jet-label for="start_date" value="Start Date" />
                     <jet-input id="start_date" type="date" class="mt-1 block w-full" v-model="form.start_date" autofocus />
                     <jet-input-error :message="form.errors.start_date" class="mt-2" />
@@ -82,6 +117,46 @@
                     <p>You can change due dates at any time.</p>
                 </div>
             </div>
+
+            <!-- Financials -->
+            <div class="col-span-6 sm:col-span-4">
+                <h1 class="text-base font-semibold mb-4">Financials</h1>
+
+                <jet-label for="budget" value="Budget" />
+                <jet-input id="budget" type="number" class="mt-1 block w-full" min="0" v-model="form.budget" autofocus />
+                <jet-input-error :message="form.errors.budget" class="mt-2" />
+            </div>
+
+            <!-- Billing -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="billing" value="Billing" />
+                <jet-input id="billing" type="number" class="mt-1 block w-full" min="0" v-model="form.billing" autofocus />
+                <jet-input-error :message="form.errors.billing" class="mt-2" />
+            </div>
+
+            <!-- Billing Type -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="billing_rate" value="Billing Rate" />
+                <select class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" v-model="form.billing_rate">
+                    <option value="hourly">Hourly</option>
+                    <option value="fixed_fee">Fixed Fee</option>
+                </select>
+                <jet-input-error :message="form.errors.billing_rate" class="mt-2" />
+            </div>
+
+            <!-- Estimated Hours -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="estimated_hours" value="Estimated Hours" />
+                <jet-input id="estimated_hours" type="number" class="mt-1 block w-full" min="0" v-model="form.estimated_hours" autofocus />
+                <jet-input-error :message="form.errors.estimated_hours" class="mt-2" />
+            </div>
+
+            <!-- Estimated Costs -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="estimated_costs" value="Estimated Costs" />
+                <jet-input id="estimated_costs" type="number" class="mt-1 block w-full" min="0" v-model="form.estimated_costs" autofocus />
+                <jet-input-error :message="form.errors.estimated_costs" class="mt-2" />
+            </div>
         </template>
 
         <template #actions>
@@ -106,9 +181,10 @@
     import JetActionMessage from '@/Jetstream/ActionMessage'
     import JetSecondaryButton from '@/Jetstream/SecondaryButton'
     import JetCheckbox from '@/Jetstream/Checkbox'
+    import Tiptap from '@/Jetstream/Tiptap'
 
     export default {
-        props: ['project_categories', 'project_category_lists'],
+        props: ['project_categories', 'project_category_lists', 'clients', 'assignee', 'project_managers'],
 
         components: {
             JetActionMessage,
@@ -119,7 +195,8 @@
             JetTextarea,
             JetLabel,
             JetSecondaryButton,
-            JetCheckbox
+            JetCheckbox,
+            Tiptap
         },
 
         data () {
@@ -130,6 +207,14 @@
                     category_id: '',
                     start_date: '',
                     end_date: '',
+                    client_id: '',
+                    assigned_to_id: '',
+                    project_manager_id: '',
+                    budget: '',
+                    billing: '',
+                    billing_rate: '',
+                    estimated_hours: '',
+                    estimated_costs: '',
                     unscheduled: false
                 }),
             }

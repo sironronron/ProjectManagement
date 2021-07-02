@@ -7,1504 +7,755 @@
         </template>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="w-full">
-          <!-- Place your content here -->
-
-          <div class="container mx-auto">
-            <div class="flex flex-wrap">
-              <div
-                class="grid w-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-              >
-                <div
-                  class="bg-white rounded flex items-center justify-between px-5 relative shadow transition duration-150 ease-in-out hover:shadow-md cursor-pointer"
-                >
-                  <div class="absolute w-2 h-4 bg-indigo-500 left-0"></div>
-                  <h3
-                    class="py-6 leading-4 text-gray-800 font-normal text-base"
-                  >
-                    Total Milestones
-                  </h3>
-                  <h2 class="text-gray-800 text-2xl leading-normal font-bold">
-                    2,330
-                  </h2>
-                </div>
-                <div
-                  class="bg-white rounded flex items-center justify-between px-5 relative shadow transition duration-150 ease-in-out hover:shadow-md cursor-pointer"
-                >
-                  <div class="absolute w-2 h-4 bg-indigo-500 left-0"></div>
-                  <h3
-                    class="py-6 leading-4 text-gray-800 font-normal text-base"
-                  >
-                    Avg. Productivity
-                  </h3>
-                  <h2 class="text-gray-800 text-2xl leading-normal font-bold">
-                    22.3%
-                  </h2>
-                </div>
-                <div
-                  class="bg-white rounded flex items-center justify-between px-5 relative shadow transition duration-150 ease-in-out hover:shadow-md cursor-pointer"
-                >
-                  <div class="absolute w-2 h-4 bg-indigo-500 left-0"></div>
-                  <h3
-                    class="py-6 leading-4 text-gray-800 font-normal text-base"
-                  >
-                    Total Sales
-                  </h3>
-                  <h2 class="text-gray-800 text-2xl leading-normal font-bold">
-                    20.2K
-                  </h2>
-                </div>
-                <div
-                  class="bg-white rounded flex items-center justify-between px-5 relative shadow transition duration-150 ease-in-out hover:shadow-md cursor-pointer"
-                >
-                  <div class="absolute w-2 h-4 bg-indigo-500 left-0"></div>
-                  <h3
-                    class="py-6 leading-4 text-gray-800 font-normal text-base"
-                  >
-                    Profit Earned
-                  </h3>
-                  <h2 class="text-gray-800 text-2xl leading-normal font-bold">
-                    8,340
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-6 gap-8"
-          >
-            <router-link to='/project-overview'>
-              <div
-                class="rounded shadow bg-white p-4 transition duration-150 ease-in-out hover:shadow-md cursor-pointer"
-              >
-                <div class="flex items-center">
-                  <img
-                    class="w-10 h-10 rounded"
-                    src="https://cdn.tuk.dev/assets/templates/Project+Management/pm_1.png"
-                    alt
-                  />
-                  <div class="ml-2">
-                    <p class="text-base text-gray-800">Munno Corp.</p>
-                    <p class="text-xs text-gray-600">San Diego, California</p>
-                  </div>
-                </div>
-                <p class="text-gray-800 mt-3 text-base font-semibold">
-                  User Experience Optimization
-                </p>
-                <p class="text-gray-600 mt-3 text-xs leading-5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                <div class="flex flex-wrap items-center mt-3">
-                  <p class="text-xs text-indigo-600">24 milestones</p>
-                  <p
-                    class="mx-2 rounded-full w-1 h-1 bg-gray-400 text-gray-600 font-bold text-center"
-                  ></p>
-                  <p class="text-xs text-indigo-600">3/9 tasks completed</p>
-                </div>
-                <div
-                  class="mt-3 bg-indigo-100 hover:bg-indigo-700 text-indigo-600 hover:text-white h-6 w-24 mb-4 sm:mb-0 rounded-full flex items-center justify-center mr-8"
-                >
-                  <div class="flex items-center justify-center h-full w-full">
-                    <span class="text-xs font-normal px-2">Details</span>
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-arrow-narrow-right"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <line x1="15" y1="16" x2="19" y2="12" />
-                        <line x1="15" y1="8" x2="19" y2="12" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </router-link>
-            <router-link to='/project-overview'>
-              <div
-                class="rounded shadow bg-white p-4 transition duration-150 ease-in-out hover:shadow-md cursor-pointer"
-              >
-                <div class="flex items-center">
-                  <img
-                    class="w-10 h-10 rounded"
-                    src="https://cdn.tuk.dev/assets/templates/Project+Management/pm_2.png"
-                    alt
-                  />
-                  <div class="ml-2">
-                    <p class="text-base text-gray-800">P&Y Studios</p>
-                    <p class="text-xs text-gray-600">Seattle, Washington</p>
-                  </div>
-                </div>
-                <p class="text-gray-800 mt-3 text-base font-semibold">
-                  Front-End Review
-                </p>
-                <p class="text-gray-600 mt-3 text-xs leading-5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                <div class="flex flex-wrap items-center mt-3">
-                  <p class="text-xs text-indigo-600">24 milestones</p>
-                  <p
-                    class="mx-2 rounded-full w-1 h-1 bg-gray-400 text-gray-600 font-bold text-center"
-                  ></p>
-                  <p class="text-xs text-indigo-600">3/9 tasks completed</p>
-                </div>
-                <div
-                  class="mt-3 bg-indigo-100 hover:bg-indigo-700 text-indigo-600 hover:text-white h-6 w-24 mb-4 sm:mb-0 rounded-full flex items-center justify-center mr-8"
-                >
-                  <div class="flex items-center justify-center h-full w-full">
-                    <span class="text-xs font-normal px-2">Details</span>
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-arrow-narrow-right"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <line x1="15" y1="16" x2="19" y2="12" />
-                        <line x1="15" y1="8" x2="19" y2="12" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </router-link>
-            <router-link to='/project-overview'>
-              <div
-                class="rounded shadow bg-white p-4 transition duration-150 ease-in-out hover:shadow-md cursor-pointer"
-              >
-                <div class="flex items-center">
-                  <img
-                    class="w-10 h-10 rounded"
-                    src="https://cdn.tuk.dev/assets/templates/Project+Management/pm_3.png"
-                    alt
-                  />
-                  <div class="ml-2">
-                    <p class="text-base text-gray-800">Humming Bird</p>
-                    <p class="text-xs text-gray-600">Toronto, Ontario</p>
-                  </div>
-                </div>
-                <p class="text-gray-800 mt-3 text-base font-semibold">
-                  AWS Services Setup
-                </p>
-                <p class="text-gray-600 mt-3 text-xs leading-5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                <div class="flex flex-wrap items-center mt-3">
-                  <p class="text-xs text-indigo-600">24 milestones</p>
-                  <p
-                    class="mx-2 rounded-full w-1 h-1 bg-gray-400 text-gray-600 font-bold text-center"
-                  ></p>
-                  <p class="text-xs text-indigo-600">3/9 tasks completed</p>
-                </div>
-                <div
-                  class="mt-3 bg-indigo-100 hover:bg-indigo-700 text-indigo-600 hover:text-white h-6 w-24 mb-4 sm:mb-0 rounded-full flex items-center justify-center mr-8"
-                >
-                  <div class="flex items-center justify-center h-full w-full">
-                    <span class="text-xs font-normal px-2">Details</span>
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-arrow-narrow-right"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <line x1="15" y1="16" x2="19" y2="12" />
-                        <line x1="15" y1="8" x2="19" y2="12" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </router-link>
-            <router-link to='/project-overview'>
-              <div
-                class="rounded shadow bg-white p-4 transition duration-150 ease-in-out hover:shadow-md cursor-pointer"
-              >
-                <div class="flex items-center">
-                  <img
-                    class="w-10 h-10 rounded"
-                    src="https://cdn.tuk.dev/assets/templates/Project+Management/pm_4.png"
-                    alt
-                  />
-                  <div class="ml-2">
-                    <p class="text-base text-gray-800">Kool & Kalm</p>
-                    <p class="text-xs text-gray-600">Montreal, Quebec</p>
-                  </div>
-                </div>
-                <p class="text-gray-800 mt-3 text-base font-semibold">
-                  Back-End Revamp
-                </p>
-                <p class="text-gray-600 mt-3 text-xs leading-5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                <div class="flex flex-wrap items-center mt-3">
-                  <p class="text-xs text-indigo-600">24 milestones</p>
-                  <p
-                    class="mx-2 rounded-full w-1 h-1 bg-gray-400 text-gray-600 font-bold text-center"
-                  ></p>
-                  <p class="text-xs text-indigo-600">3/9 tasks completed</p>
-                </div>
-                <div
-                  class="mt-3 bg-indigo-100 hover:bg-indigo-700 text-indigo-600 hover:text-white h-6 w-24 mb-4 sm:mb-0 rounded-full flex items-center justify-center mr-8"
-                >
-                  <div class="flex items-center justify-center h-full w-full">
-                    <span class="text-xs font-normal px-2">Details</span>
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-arrow-narrow-right"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <line x1="15" y1="16" x2="19" y2="12" />
-                        <line x1="15" y1="8" x2="19" y2="12" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </router-link>
-          </div>
-
-          <div class="container pt-6 mx-auto">
-            <div class="flex flex-wrap">
-              <div class="md:w-3/4 w-full pb-6 md:pb-0 md:pr-6">
-                <div class="bg-white pb-4 rounded">
-                  <div
-                    class="w-full bg-white py-4 flex items-start sm:items-center justify-between xl:px-10 lg:px-6 sm:px-3 px-6 border-b border-gray-200 rounded-t"
-                  >
-                    <h2 class="px-1 text-gray-800 text-lg font-bold">
-                      Total Progress
-                    </h2>
-                  </div>
-                  <div class="mt-4 flex sm:flex-row flex-col items-center px-3">
-                    <p
-                      class="cursor-pointer sm:w-2/12 w-full text-center mb-4 sm:mb-0 text-gray-600 text-base sm:mr-0 md:mr-4 lg:mr-0 xl:mr-0"
-                    >
-                      Project 1
-                    </p>
-                    <div class="container mx-auto flex justify-center">
-                      <div
-                        class="w-full lg:mr-8 mr-3 h-2 bg-gray-200 rounded progress-div cursor-pointer"
-                      >
-                        <div
-                          class="w-0 bg-indigo-500 h-2 rounded relative"
-                          id="progress-bar-1"
-                        >
-                          <div class="absolute right-0">
-                            <div
-                              class="relative bg-indigo-500 shadow-lg px-2 py-1 rounded mt-4 -mr-5 progress-tag hidden"
-                            >
-                              <svg
-                                class="absolute top-0 -mt-1 w-full right-0 left-0"
-                                width="16px"
-                                height="8px"
-                                viewBox="0 0 16 8"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                >
-                                  <g
-                                    id="Progress-Bars"
-                                    transform="translate(-322.000000, -198.000000)"
-                                    fill="#667EEA"
-                                  >
-                                    <g
-                                      id="Group-4"
-                                      transform="translate(310.000000, 198.000000)"
-                                    >
-                                      <polygon
-                                        id="Triangle"
-                                        points="20 0 28 8 12 8"
-                                      />
-                                    </g>
-                                  </g>
-                                </g>
-                              </svg>
-                              <p class="text-white text-xs font-bold">75%</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mt-8 flex sm:flex-row flex-col items-center px-3">
-                    <p
-                      class="cursor-pointer sm:w-2/12 w-full text-center mb-4 sm:mb-0 text-gray-600 text-base sm:mr-0 md:mr-4 lg:mr-0 xl:mr-0"
-                    >
-                      Project 2
-                    </p>
-                    <div class="container mx-auto flex justify-center">
-                      <div
-                        class="w-full lg:mr-8 mr-3 h-2 bg-gray-200 rounded progress-div cursor-pointer"
-                      >
-                        <div
-                          class="w-0 bg-indigo-500 h-2 rounded relative"
-                          id="progress-bar-2"
-                        >
-                          <div class="absolute right-0">
-                            <div
-                              class="relative bg-indigo-500 shadow-lg px-2 py-1 rounded mt-4 -mr-5 progress-tag hidden"
-                            >
-                              <svg
-                                class="absolute top-0 -mt-1 w-full right-0 left-0"
-                                width="16px"
-                                height="8px"
-                                viewBox="0 0 16 8"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                >
-                                  <g
-                                    id="Progress-Bars"
-                                    transform="translate(-322.000000, -198.000000)"
-                                    fill="#667EEA"
-                                  >
-                                    <g
-                                      id="Group-4"
-                                      transform="translate(310.000000, 198.000000)"
-                                    >
-                                      <polygon
-                                        id="Triangle"
-                                        points="20 0 28 8 12 8"
-                                      />
-                                    </g>
-                                  </g>
-                                </g>
-                              </svg>
-                              <p class="text-white text-xs font-bold">58%</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mt-8 flex sm:flex-row flex-col items-center px-3">
-                    <p
-                      class="cursor-pointer sm:w-2/12 w-full text-center mb-4 sm:mb-0 text-gray-600 text-base sm:mr-0 md:mr-4 lg:mr-0 xl:mr-0"
-                    >
-                      Project 3
-                    </p>
-                    <div class="container mx-auto flex justify-center">
-                      <div
-                        class="w-full lg:mr-8 mr-3 h-2 bg-gray-200 rounded progress-div cursor-pointer"
-                      >
-                        <div
-                          class="w-0 bg-indigo-500 h-2 rounded relative"
-                          id="progress-bar-3"
-                        >
-                          <div class="absolute right-0">
-                            <div
-                              class="relative bg-indigo-500 shadow-lg px-2 py-1 rounded mt-4 -mr-5 progress-tag hidden"
-                            >
-                              <svg
-                                class="absolute top-0 -mt-1 w-full right-0 left-0"
-                                width="16px"
-                                height="8px"
-                                viewBox="0 0 16 8"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                >
-                                  <g
-                                    id="Progress-Bars"
-                                    transform="translate(-322.000000, -198.000000)"
-                                    fill="#667EEA"
-                                  >
-                                    <g
-                                      id="Group-4"
-                                      transform="translate(310.000000, 198.000000)"
-                                    >
-                                      <polygon
-                                        id="Triangle"
-                                        points="20 0 28 8 12 8"
-                                      />
-                                    </g>
-                                  </g>
-                                </g>
-                              </svg>
-                              <p class="text-white text-xs font-bold">41%</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mt-8 flex sm:flex-row flex-col items-center px-3">
-                    <p
-                      class="cursor-pointer sm:w-2/12 w-full text-center mb-4 sm:mb-0 sm:mr-0 md:mr-4 lg:mr-0 xl:mr-0 text-gray-600 text-base"
-                    >
-                      Project 4
-                    </p>
-                    <div class="container mx-auto flex justify-center">
-                      <div
-                        class="w-full lg:mr-8 mr-3 h-2 bg-gray-200 rounded progress-div cursor-pointer"
-                      >
-                        <div
-                          class="w-0 bg-indigo-500 h-2 rounded relative"
-                          id="progress-bar-4"
-                        >
-                          <div class="absolute right-0">
-                            <div
-                              class="relative bg-indigo-500 shadow-lg px-2 py-1 rounded mt-4 -mr-5 progress-tag hidden"
-                            >
-                              <svg
-                                class="absolute top-0 -mt-1 w-full right-0 left-0"
-                                width="16px"
-                                height="8px"
-                                viewBox="0 0 16 8"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                >
-                                  <g
-                                    id="Progress-Bars"
-                                    transform="translate(-322.000000, -198.000000)"
-                                    fill="#667EEA"
-                                  >
-                                    <g
-                                      id="Group-4"
-                                      transform="translate(310.000000, 198.000000)"
-                                    >
-                                      <polygon
-                                        id="Triangle"
-                                        points="20 0 28 8 12 8"
-                                      />
-                                    </g>
-                                  </g>
-                                </g>
-                              </svg>
-                              <p class="text-white text-xs font-bold">50%</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="md:w-1/4 w-full">
-                <div class="bg-white rounded pb-4">
-                  <div
-                    class="w-full bg-white py-3 flex items-start sm:items-center justify-between px-3 border-b border-gray-200 rounded-t"
-                  >
-                    <h2 class="text-gray-800 text-lg font-bold">
-                      Weekly Progress
-                    </h2>
-                  </div>
-                  <div
-                    class="mt-2 mx-3 bg-indigo-100 flex items-center justify-between rounded border-gray-300 py-3 px-4 cursor-pointer relative"
-                    id="weekly-div"
-                  >
-                    <div class="w-4/5">
-                      <p class="text-sm text-gray-800" id="filter-value">
-                        Fitbit Rebrand and UI
-                      </p>
-                      <ul
-                        class="bg-white shadow rounded mt-3 py-1 right-0 left-0 absolute hidden"
-                        id="weekly-list"
-                      >
-                        <li
-                          class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-                          v-on:click="ListFilterFunction('10%',5,'Total-Milestones')"
-                        >
-                          Total Milestones
-                        </li>
-                        <li
-                          class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-                          v-on:click="ListFilterFunction('15%','3', 'Avg. Productivity')"
-                        >
-                          Avg. Productivity
-                        </li>
-                        <li
-                          class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-                          v-on:click="ListFilterFunction('57%',4,'Total Sales')"
-                        >
-                          Total Sales
-                        </li>
-                        <li
-                          class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-                          v-on:click="ListFilterFunction('66%',3,'Profit Earned')"
-                        >
-                          Profit Earned
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="w-1/5">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="float-right icon icon-tabler icon-tabler-chevron-down"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="#2c3e50"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <polyline points="6 9 12 15 18 9" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div class="mx-3 mt-4">
-                    <div class="flex justify-between">
-                      <div class="flex flex-col items-center">
-                        <div
-                          class="h-32 w-2 bg-gray-200 rounded flex items-end"
-                        >
-                          <div
-                            aria-orientation="vertical"
-                            class="h-16 w-2 rounded bg-indigo-500"
-                          ></div>
-                        </div>
-                        <p class="text-sm text-gray-600">M1</p>
-                      </div>
-                      <div class="flex flex-col items-center">
-                        <div
-                          class="h-32 w-2 bg-gray-200 rounded flex items-end"
-                        >
-                          <div
-                            aria-orientation="vertical"
-                            class="h-24 w-2 rounded bg-indigo-500"
-                          ></div>
-                        </div>
-                        <p class="text-sm text-gray-600">M2</p>
-                      </div>
-                      <div class="flex flex-col items-center">
-                        <div
-                          class="h-32 w-2 bg-gray-200 rounded flex items-end"
-                        >
-                          <div
-                            aria-orientation="vertical"
-                            class="h-20 w-2 rounded bg-indigo-500"
-                          ></div>
-                        </div>
-                        <p class="text-sm text-gray-600">M3</p>
-                      </div>
-                      <div class="flex flex-col items-center">
-                        <div
-                          class="h-32 w-2 bg-gray-200 rounded flex items-end"
-                        >
-                          <div
-                            aria-orientation="vertical"
-                            class="h-10 w-2 rounded bg-indigo-500"
-                          ></div>
-                        </div>
-                        <p class="text-sm text-gray-600">M4</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container pt-6 mx-auto">
-            <div class="flex flex-wrap">
-              <div class="w-full">
-                <div class="mx-auto bg-white shadow rounded">
-                  <div
-                    class="py-6 xl:px-8 lg:px-8 md:px-8 px-4 flex justify-between items-center"
-                  >
-                    <p
-                      class="font-bold text-sm xl:text-lg lg:text-lg md:text-lg text-gray-800"
-                    >
-                      23 December,
-                      <span class="text-gray-500">Sunday</span>
-                    </p>
-                    <div
-                      class="bg-gray-100 flex items-center xl:p-3 lg:p-3 md:p-3 p-2 rounded cursor-pointer relative"
-                      id="weeklybutton"
-                    >
-                      <ul
-                        class="bg-white shadow rounded mt-2 py-1 absolute right-0 left-0 top-0 mt-12 hidden"
-                        id="weekly-toggle"
-                      >
-                        <li
-                          class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-                          v-on:click="WeeklyFilter('This Week')"
-                        >
-                          This Week
-                        </li>
-                        <li
-                          class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-                          v-on:click="WeeklyFilter('Past Three Days')"
-                        >
-                          Past Three Days
-                        </li>
-                        <li
-                          class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-                          v-on:click="WeeklyFilter('Past 2 weeks')"
-                        >
-                          Past 2 weeks
-                        </li>
-                        <li
-                          class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-                          v-on:click="WeeklyFilter('Past Month')"
-                        >
-                          Past Month
-                        </li>
-                      </ul>
-                      <p class="text-sm text-gray-600">
-                        Show:
-                        <span class="text-indigo-500" id="weekFilter"
-                          >This week</span
-                        >
-                      </p>
-                      <div class="pl-2">
-                        <svg
-                          width="11px"
-                          height="7px"
-                          viewBox="0 0 11 7"
-                          version="1.1"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                        >
-                          <g
-                            stroke="none"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"
-                          >
-                            <g
-                              transform="translate(-844.000000, -3161.000000)"
-                              fill="#718096"
-                              fill-rule="nonzero"
-                              stroke="#718096"
-                              stroke-width="0.5"
-                            >
-                              <g transform="translate(154.000000, 3123.000000)">
-                                <g transform="translate(567.000000, 23.000000)">
-                                  <g transform="translate(12.000000, 9.000000)">
-                                    <path
-                                      d="M114.181858,14 C114.129829,14 114.080347,13.977125 114.045782,13.937 C113.9792,13.859375 113.986476,13.7405
-                                                            114.061427,13.67225 L118.636701,9.5 L114.061427,5.328125 C113.986113,5.2595 113.9792,5.140625 114.045418,5.063375
-                                                            C114.080347,5.02325 114.129829,5 114.181858,5 C114.226246,5 114.269179,5.016875 114.302288,5.046875 L118.877926,9.219125
-                                                            C118.888477,9.228875 118.898301,9.238625 118.907397,9.249125 C119.041654,9.405125 119.028191,9.64325 118.87829,9.780125
-                                                            L114.302288,13.953125 C114.268815,13.9835 114.226246,14 114.181858,14 Z"
-                                      transform="translate(116.500000, 9.500000) rotate(-270.000000) translate(-116.500000, -9.500000)"
-                                    />
-                                  </g>
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="xl:px-8 lg:px-8 md:px-8 px-4 py-2 bg-white">
-                    <div class="xl:flex lg:flex md:flex sm:flex items-center">
-                      <div class="xl:w-1/4 w-full mb-2 xl:mb-0">
-                        <p class="text-sm text-gray-600">Tasks Scheduled: 24</p>
-                      </div>
-                      <div class="xl:w-1/4 w-full mb-2 xl:mb-0">
-                        <p class="text-sm text-gray-600">Tasks Pending: 15</p>
-                      </div>
-                      <div class="xl:w-1/4 w-full mb-2 xl:mb-0">
-                        <p class="text-sm text-gray-600">Tasks Completed: 09</p>
-                      </div>
-                      <div class="xl:w-1/4 w-full mb-2 xl:mb-0">
-                        <button
-                          id="task-btn"
-                          class="sm:float-right bg-indigo-500 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-6 py-2 text-xs"
-                        >
-                          Add Task
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      id="task-modal"
-                      class="hidden fixed z-10 pt-10 left-0 top-0 w-full h-full overflow-auto shadow-lg display: none;"
-                      style="
-                        background-color: rgb(0, 0, 0);
-                        background-color: rgba(0, 0, 0, 0.4);
-                      "
-                    >
-                      <div
-                        role="alert"
-                        class="container mx-auto w-11/12 md:w-2/3 max-w-lg"
-                      >
-                        <div
-                          class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400 task-modal-inner"
-                        >
-                          <div
-                            class="w-full flex justify-start text-gray-600 mb-3"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon icon-tabler icon-tabler-new-section"
-                              width="52"
-                              height="52"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z" />
-                              <line x1="9" y1="12" x2="15" y2="12" />
-                              <line x1="12" y1="9" x2="12" y2="15" />
-                              <path
-                                d="M4 6v-1a1 1 0 0 1 1 -1h1m5 0h2m5 0h1a1 1 0 0 1 1 1v1m0 5v2m0 5v1a1 1 0 0 1 -1 1h-1m-5 0h-2m-5 0h-1a1 1 0 0 1 -1 -1v-1m0 -5v-2m0 -5"
-                              />
-                            </svg>
-                          </div>
-                          <h1
-                            class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4"
-                          >
-                            Add new task
-                          </h1>
-                          <label
-                            for="name"
-                            class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-                          >
-                            Task Title
-                          </label>
-                          <input
-                            id="name"
-                            class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-                            placeholder="Skype"
-                          />
-                          <label
-                            for="desc"
-                            class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-                          >
-                            Task Description
-                          </label>
-                          <textarea
-                            type="text"
-                            id="desc"
-                            class="mb-5 items-start h-24 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full flex p-3 text-sm border-gray-300 rounded border resize-none"
-                            placeholder="
-                                            "
-                          ></textarea>
-                          <label
-                            for="time"
-                            class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-                          >
-                            Set Time
-                          </label>
-                          <div class="relative mb-5 mt-2">
-                            <div
-                              class="absolute text-gray-600 flex items-center px-4 border-r h-full"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-clock"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <circle cx="12" cy="12" r="9" />
-                                <polyline points="12 7 12 12 15 15" />
-                              </svg>
-                            </div>
-                            <div
-                              class="absolute right-0 text-gray-600 flex items-center pr-3 h-full"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="cursor-pointer icon icon-tabler icon-tabler-info-circle"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <circle cx="12" cy="12" r="9" />
-                                <line x1="12" y1="8" x2="12.01" y2="8" />
-                                <polyline points="11 12 12 12 12 16 13 16" />
-                              </svg>
-                            </div>
-                            <input
-                              id="time"
-                              class="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-16 text-sm border-gray-300 rounded border"
-                              placeholder="9am to 10pm, Today"
-                            />
-                          </div>
-                          <label
-                            for="attendants"
-                            class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-                          >
-                            Add Attendants
-                          </label>
-                          <div class="relative mb-5 mt-2">
-                            <div
-                              class="absolute text-gray-600 flex items-center px-4 border-r h-full"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-search"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <circle cx="10" cy="10" r="7" />
-                                <line x1="21" y1="21" x2="15" y2="15" />
-                              </svg>
-                            </div>
-                            <div
-                              class="absolute right-0 text-gray-600 flex items-center pr-3 h-full"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="cursor-pointer icon icon-tabler icon-tabler-chevron-down"
-                                width="22"
-                                height="22"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <polyline points="6 9 12 15 18 9" />
-                              </svg>
-                            </div>
-                            <input
-                              id="attendants"
-                              class="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-16 text-sm border-gray-300 rounded border"
-                              placeholder="Search by name or department"
-                            />
-                          </div>
-                          <div class="mb-4 flex items-center flex-no-wrap">
-                            <div class="w-8 h-8 bg-cover bg-center rounded-md">
-                              <img
-                                src="https://dh-ui.s3.amazonaws.com/assets/boy-smiling_23-2148155640.jpg"
-                                alt
-                                class="h-full w-full overflow-hidden object-cover rounded-full border-2 border-white shadow"
-                              />
-                            </div>
-                            <div class="w-8 h-8 bg-cover rounded-md ml-1">
-                              <img
-                                src="https://dh-ui.s3.amazonaws.com/assets/photo-1564061170517-d3907caa96ea.jfif"
-                                alt
-                                class="h-full w-full overflow-hidden object-cover rounded-full border-2 border-white shadow"
-                              />
-                            </div>
-                            <div
-                              class="w-8 h-8 bg-cover rounded-md bg-center ml-1"
-                            >
-                              <img
-                                src="https://dh-ui.s3.amazonaws.com/assets/photo-1566753323558-f4e0952af115.jfif"
-                                alt
-                                class="h-full w-full overflow-hidden object-cover rounded-full border-2 border-white shadow"
-                              />
-                            </div>
-                          </div>
-                          <label
-                            for="tag"
-                            class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-                          >
-                            Add Tag
-                          </label>
-                          <div class="relative w-1/3 mt-2">
-                            <div
-                              class="absolute right-0 text-gray-600 flex items-center justify-center pr-3 h-full pointer-events-none"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="cursor-pointer icon icon-tabler icon-tabler-chevron-down"
-                                width="22"
-                                height="22"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <polyline points="6 9 12 15 18 9" />
-                              </svg>
-                            </div>
-                            <div
-                              id="tag"
-                              class="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-2 text-sm border-gray-300 rounded border"
-                            >
-                              <select
-                                class="w-full focus:outline-none h-full appearance-none"
-                              >
-                                <option class="w-full my-3 ml-1">Urgent</option>
-                                <option class="w-full my-3 ml-1">
-                                  Pending
-                                </option>
-                                <option class="w-full my-3 ml-1">
-                                  Approve
-                                </option>
-                              </select>
-                            </div>
-                          </div>
-                          <div
-                            class="bg-red-200 h-6 w-20 mb-4 md:mb-0 rounded-md flex items-center justify-center my-4"
-                          >
-                            <span class="text-xs text-red-500 font-normal"
-                              >Urgent</span
-                            >
-                          </div>
-                          <div
-                            class="flex items-center justify-start mt-4 w-full"
-                          >
-                            <button
-                              class="focus:outline-none bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm"
-                              id="cancel-task-modal"
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              class="focus:outline-none ml-3 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"
-                            >
-                              Add Task
-                            </button>
-                          </div>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-label="Close"
-                            class="close cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out icon icon-tabler icon-tabler-x"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            stroke-width="2.5"
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-linecap="round"
-                            id="close-task"
-                            stroke-linejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" />
-                            <line x1="18" y1="6" x2="6" y2="18" />
-                            <line x1="6" y1="6" x2="18" y2="18" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="xl:px-8 lg:px-8 md:px-8 px-4 py-6 bg-white">
-                    <div
-                      class="p-5 flex justify-between rounded mb-6 bg-gray-100"
-                    >
-                      <div class="w-3/5">
-                        <p class="mb-2 text-sm font-bold text-gray-800">
-                          UX Team Skype Session
-                        </p>
-                        <ul>
-                          <li class="mb-2 text-xs text-gray-600">
-                            - Design review of existing products completed in
-                            the backlog
-                          </li>
-                          <li class="text-xs text-gray-600">
-                            - Design quality assurance and developer handoff
-                          </li>
-                        </ul>
-                      </div>
-                      <div
-                        class="w-3/12 flex flex-col items-end justify-between"
-                      >
-                        <p class="text-xs text-gray-600">From 9am - 10am</p>
-                        <div
-                          class="bg-gray-200 h-6 w-20 mb-4 md:mb-0 rounded-md flex items-center justify-center"
-                        >
-                          <span class="text-xs text-gray-600 font-normal"
-                            >Meeting</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="p-5 flex justify-between rounded mb-6 bg-gray-100 meeting-card"
-                    >
-                      <div class="w-3/5">
-                        <p class="mb-4 text-sm font-bold text-gray-800">
-                          Quality Assurance Exercises
-                        </p>
-                        <ul class="mb-5">
-                          <li class="mb-2 text-xs text-gray-600">
-                            But I must explain to you how all this mistaken idea
-                            of denouncing pleasure and praising pain was born
-                            and I will give you a complete account of the
-                            system, and expound the actual teachings of the
-                            great explorer of the truth, the master-builder of
-                            human happiness
-                          </li>
-                        </ul>
-                        <div
-                          class="flex flex-wrap items-center relative cursor-pointer"
-                        >
-                          <div
-                            class="w-6 h-6 bg-cover bg-center rounded-full border border-white relative shadow"
-                          >
-                            <img
-                              class="h-full w-full object-cover rounded-full"
-                              src="https://cdn.tuk.dev/assets/templates/Project+Management/pm_5.png"
-                              alt
-                            />
-                          </div>
-                          <div
-                            class="w-6 h-6 bg-cover rounded-full -ml-1 border border-white shadow"
-                          >
-                            <img
-                              class="h-full w-full object-cover rounded-full"
-                              src="https://cdn.tuk.dev/assets/templates/Project+Management/pm_6.png"
-                              alt
-                            />
-                          </div>
-                          <div
-                            class="w-6 h-6 bg-cover rounded-full bg-center -ml-1 border border-white shadow"
-                          >
-                            <img
-                              class="h-full w-full object-cover rounded-full"
-                              src="https://cdn.tuk.dev/assets/templates/Project+Management/pm_7.png"
-                              alt
-                            />
-                          </div>
-                          <div class="relative member-list-main">
-                            <p class="text-xs ml-1 text-gray-600">
-                              +3 attendees
-                            </p>
-                            <div
-                              class="hidden absolute -mt-16 ml-24 shadow-lg bg-white pt-12 rounded member-tooltip"
-                            >
-                              <svg
-                                class="absolute left-0 -ml-2 mt-1"
-                                width="9px"
-                                height="16px"
-                                viewBox="0 0 9 16"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                >
-                                  <g
-                                    id="Tooltips-"
-                                    transform="translate(-874.000000, -1029.000000)"
-                                    fill="#FFFFFF"
-                                  >
-                                    <g
-                                      id="Group-3-Copy-16"
-                                      transform="translate(850.000000, 975.000000)"
-                                    >
-                                      <g
-                                        id="Group-2"
-                                        transform="translate(24.000000, 0.000000)"
-                                      >
-                                        <polygon
-                                          id="Triangle"
-                                          transform="translate(4.500000, 62.000000) rotate(-90.000000) translate(-4.500000, -62.000000) "
-                                          points="4.5 57.5 12.5 66.5 -3.5 66.5"
-                                        />
-                                      </g>
-                                    </g>
-                                  </g>
-                                </g>
-                              </svg>
-                              <div class="w-full absolute top-0">
-                                <input
-                                  class="px-5 py-3 w-full focus:outline-none bg-gray-100 text-base text-gray-600"
-                                  placeholder="Search for people to invite"
-                                />
-                              </div>
-                              <div class="h-64 overflow-y-scroll">
-                                <div
-                                  class="flex mt-2 items-center justify-between flex-no-wrap mx-3 py-2 border-b border-gray-300"
-                                >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="text-gray-600 -ml-1 icon icon-tabler icon-tabler-chevron-left"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  >
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <polyline points="15 6 9 12 15 18" />
-                                  </svg>
-                                  <div
-                                    class="w-10 h-10 bg-cover bg-center rounded-md"
-                                  >
-                                    <img
-                                      src="https://dh-ui.s3.amazonaws.com/assets/boy-smiling_23-2148155640.jpg"
-                                      alt
-                                      class="h-full w-full overflow-hidden object-cover rounded-full"
-                                    />
-                                  </div>
-                                  <div
-                                    class="w-10 h-10 bg-cover rounded-md ml-2"
-                                  >
-                                    <img
-                                      src="https://dh-ui.s3.amazonaws.com/assets/photo-1564061170517-d3907caa96ea.jfif"
-                                      alt
-                                      class="h-full w-full overflow-hidden object-cover rounded-full"
-                                    />
-                                  </div>
-                                  <div
-                                    class="w-10 h-10 bg-cover rounded-md bg-center ml-2"
-                                  >
-                                    <img
-                                      src="https://dh-ui.s3.amazonaws.com/assets/photo-1566753323558-f4e0952af115.jfif"
-                                      alt
-                                      class="h-full w-full overflow-hidden object-cover rounded-full"
-                                    />
-                                  </div>
-                                  <div
-                                    class="w-10 h-10 bg-cover rounded-md ml-2"
-                                  >
-                                    <img
-                                      src="https://dh-ui.s3.amazonaws.com/assets/webapp/ui_elements/avatars/avatar4.jpg"
-                                      alt
-                                      class="h-full w-full overflow-hidden object-cover object-center rounded-full"
-                                    />
-                                  </div>
-                                  <div
-                                    class="w-10 h-10 bg-cover rounded-md ml-2"
-                                  >
-                                    <img
-                                      src="https://dh-ui.s3.amazonaws.com/assets/photo-1575978108872-9b1429a19a0f.jfif"
-                                      alt
-                                      class="h-full w-full overflow-hidden object-cover object-center rounded-full"
-                                    />
-                                  </div>
-                                  <div
-                                    class="w-10 h-10 bg-cover rounded-md bg-center ml-2"
-                                  >
-                                    <img
-                                      src="https://dh-ui.s3.amazonaws.com/assets/photo-1566753323558-f4e0952af115.jfif"
-                                      alt
-                                      class="h-full w-full overflow-hidden object-cover rounded-full"
-                                    />
-                                  </div>
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="text-gray-600 -mr-1 icon icon-tabler icon-tabler-chevron-right"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  >
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <polyline points="9 6 15 12 9 18" />
-                                  </svg>
-                                </div>
-                                <div
-                                  class="mt-4 flex justify-between items-center px-4 py-2 hover:bg-gray-200"
-                                >
-                                  <div class="flex items-center">
-                                    <img
-                                      class="w-10 h-10 bg-cover rounded-full"
-                                      src="https://dh-ui.s3.amazonaws.com/assets/boy-smiling_23-2148155640.jpg"
-                                      alt
-                                    />
-                                    <div class="ml-2">
-                                      <p class="text-sm text-gray-800">
-                                        Carry Mathison
-                                      </p>
-                                      <p class="text-xs text-gray-600">
-                                        carry.mt@gmail.com
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="bg-yellow-200 h-6 w-20 mb-4 md:mb-0 rounded-md flex items-center justify-center"
-                                  >
-                                    <span
-                                      class="text-xs text-yellow-500 font-normal"
-                                      >Pending</span
-                                    >
-                                  </div>
-                                </div>
-                                <div
-                                  class="mt-4 flex justify-between items-center px-4 py-2 hover:bg-gray-200"
-                                >
-                                  <div class="flex items-center">
-                                    <img
-                                      class="w-10 h-10 bg-cover rounded-full"
-                                      src="https://dh-ui.s3.amazonaws.com/assets/photo-1564061170517-d3907caa96ea.jfif"
-                                      alt
-                                    />
-                                    <div class="ml-2">
-                                      <p class="text-sm text-gray-800">
-                                        Ronald McDonald
-                                      </p>
-                                      <p class="text-xs text-gray-600">
-                                        ronald.md@gmail.com
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="bg-teal-200 h-6 w-16 mb-4 md:mb-0 rounded-md flex items-center justify-center"
-                                  >
-                                    <span
-                                      class="text-xs text-teal-500 font-normal"
-                                      >Going</span
-                                    >
-                                  </div>
-                                </div>
-                                <div
-                                  class="mt-4 flex justify-between items-center px-4 py-2 hover:bg-gray-200"
-                                >
-                                  <div class="flex items-center">
-                                    <img
-                                      class="w-10 h-10 bg-cover rounded-full"
-                                      src="https://dh-ui.s3.amazonaws.com/assets/photo-1575978108872-9b1429a19a0f.jfif"
-                                      alt
-                                    />
-                                    <div class="ml-2">
-                                      <p class="text-sm text-gray-800">
-                                        Linda Johnson
-                                      </p>
-                                      <p class="text-xs text-gray-600">
-                                        linda.jh@live.com
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="bg-gray-200 h-6 w-20 mb-4 md:mb-0 rounded-md flex items-center justify-center"
-                                  >
-                                    <span
-                                      class="text-xs text-gray-500 font-normal"
-                                      >Cancelled</span
-                                    >
-                                  </div>
-                                </div>
-                                <div
-                                  class="mt-4 flex justify-between items-center px-4 py-2 hover:bg-gray-200"
-                                >
-                                  <div class="flex items-center">
-                                    <img
-                                      class="w-10 h-10 bg-cover rounded-full"
-                                      src="https://dh-ui.s3.amazonaws.com/assets/boy-smiling_23-2148155640.jpg"
-                                      alt
-                                    />
-                                    <div class="ml-2">
-                                      <p class="text-sm text-gray-800">
-                                        Carry Mathison
-                                      </p>
-                                      <p class="text-xs text-gray-600">
-                                        carry.mt@gmail.com
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="bg-yellow-200 h-6 w-20 mb-4 md:mb-0 rounded-md flex items-center justify-center"
-                                  >
-                                    <span
-                                      class="text-xs text-yellow-500 font-normal"
-                                      >Pending</span
-                                    >
-                                  </div>
-                                </div>
-                                <div
-                                  class="mt-4 flex justify-between items-center px-4 py-2 hover:bg-gray-200"
-                                >
-                                  <div class="flex items-center">
-                                    <img
-                                      class="w-10 h-10 bg-cover rounded-full"
-                                      src="https://dh-ui.s3.amazonaws.com/assets/photo-1564061170517-d3907caa96ea.jfif"
-                                      alt
-                                    />
-                                    <div class="ml-2">
-                                      <p class="text-sm text-gray-800">
-                                        Ronald McDonald
-                                      </p>
-                                      <p class="text-xs text-gray-600">
-                                        ronald.md@gmail.com
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="bg-teal-200 h-6 w-16 mb-4 md:mb-0 rounded-md flex items-center justify-center"
-                                  >
-                                    <span
-                                      class="text-xs text-teal-500 font-normal"
-                                      >Going</span
-                                    >
-                                  </div>
-                                </div>
-                                <div
-                                  class="my-4 flex justify-between items-center px-4 py-2 hover:bg-gray-200"
-                                >
-                                  <div class="flex items-center">
-                                    <img
-                                      class="w-10 h-10 bg-cover rounded-full"
-                                      src="https://dh-ui.s3.amazonaws.com/assets/photo-1575978108872-9b1429a19a0f.jfif"
-                                      alt
-                                    />
-                                    <div class="ml-2">
-                                      <p class="text-sm text-gray-800">
-                                        Linda Johnson
-                                      </p>
-                                      <p class="text-xs text-gray-600">
-                                        linda.jh@live.com
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="bg-gray-200 h-6 w-20 mb-4 md:mb-0 rounded-md flex items-center justify-center"
-                                  >
-                                    <span
-                                      class="text-xs text-gray-500 font-normal"
-                                      >Cancelled</span
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="w-3/12 flex flex-col items-end justify-between"
-                      >
-                        <p class="text-xs text-gray-600">From 9am - 10am</p>
-                        <div
-                          class="bg-red-200 h-6 w-20 mb-4 md:mb-0 rounded-md flex items-center justify-center"
-                        >
-                          <span class="text-xs text-red-500 font-normal"
-                            >Urgent</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="p-5 flex justify-between rounded mb-6 bg-gray-100"
-                    >
-                      <div class="w-3/5">
-                        <p class="mb-4 text-sm font-bold text-gray-800">
-                          Engineering Review
-                        </p>
-                        <ul class="mb-5">
-                          <li class="mb-2 text-xs text-gray-600">
-                            But I must explain to you how all this mistaken idea
-                            of denouncing pleasure and praising pain was born
-                            and I will give you a complete account of the
-                            system, and expound the actual teachings of the
-                            great explorer of the truth, the master-builder of
-                            human happiness
-                          </li>
-                        </ul>
-                      </div>
-                      <div
-                        class="w-3/12 flex flex-col items-end justify-between"
-                      >
-                        <p class="text-xs text-gray-600">From 9am - 10am</p>
-                        <div
-                          class="bg-yellow-200 h-6 w-20 mb-4 md:mb-0 rounded-md flex items-center justify-center"
-                        >
-                          <span class="text-xs text-yellow-500 font-normal"
-                            >Personal</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            <div class="container mx-auto">
+				<div class="xl:flex">
+					<div class="xl:w-3/4 2xl:w-4/5">
+						<div class="bg-white shadow-lg pb-8 px-4 md:px-8 xl:px-10">
+						<div class="py-4 sm:py-6 md:py-8">
+							<div
+							class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 border-gray-100 border-b pb-8 gap-y-8 gap-x-12 2xl:gap-x-0"
+							>
+							<div class="w-full">
+								<p
+								class="text-xs md:text-sm font-medium leading-none text-gray-500 uppercase"
+								>
+								Sales
+								</p>
+								<p
+								class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-3 text-gray-800 mt-3 md:mt-5"
+								>
+								89.5%
+								</p>
+								<div class="flex flex-col md:w-48 w-full lg:w-64">
+								<div class="w-full flex justify-end">
+									<div class="flex items-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										viewBox="0 0 16 16"
+										fill="none"
+									>
+										<path
+										d="M8 3.33334V12.6667"
+										stroke="#16A34A"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										/>
+										<path
+										d="M12 7.33334L8 3.33334"
+										stroke="#16A34A"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										/>
+										<path
+										d="M4 7.33334L8 3.33334"
+										stroke="#16A34A"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										/>
+									</svg>
+									<p class="text-xs leading-none text-green-600">
+										4.3%
+									</p>
+									</div>
+								</div>
+								<div class="mt-2.5">
+									<div class="w-full h-1 bg-gray-200 rounded-full">
+									<div class="w-1/2 h-1 bg-blue-500 rounded-full"></div>
+									</div>
+								</div>
+								</div>
+								<p class="mt-1.5 text-xs leading-3 text-gray-400">
+								Yearly target
+								</p>
+							</div>
+							<div class="w-full">
+								<p
+								class="text-xs md:text-sm font-medium leading-none text-gray-500 uppercase"
+								>
+								revenue
+								</p>
+								<p
+								class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-3 text-gray-800 mt-3 md:mt-5"
+								>
+								$75,000
+								</p>
+								<div class="flex flex-col">
+								<div class="h-4"></div>
+								<div class="lg:w-64 md:w-48 w-fill mt-2.5">
+									<div class="w-full h-1 bg-gray-200 rounded-full">
+									<div class="w-40 h-1 bg-lime-500 rounded-full"></div>
+									</div>
+								</div>
+								</div>
+								<p class="mt-1.5 text-xs leading-3 text-gray-400">
+								Yearly target
+								</p>
+							</div>
+							<div class="w-full">
+								<p
+								class="text-xs md:text-sm font-medium leading-none text-gray-500 uppercase"
+								>
+								customers
+								</p>
+								<p
+								class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-3 text-gray-800 mt-3 md:mt-5"
+								>
+								3922
+								</p>
+								<div class="flex flex-col md:w-48 w-full lg:w-64">
+								<div class="w-full flex justify-end">
+									<div class="flex items-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										viewBox="0 0 16 16"
+										fill="none"
+									>
+										<path
+										d="M8 3.33334V12.6667"
+										stroke="#16A34A"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										/>
+										<path
+										d="M12 7.33334L8 3.33334"
+										stroke="#16A34A"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										/>
+										<path
+										d="M4 7.33334L8 3.33334"
+										stroke="#16A34A"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										/>
+									</svg>
+									<p class="text-xs leading-none text-green-600">
+										9.1%
+									</p>
+									</div>
+								</div>
+								<div class="mt-2.5">
+									<div class="w-full h-1 bg-gray-200 rounded-full">
+									<div
+										class="w-44 h-1 bg-yellow-500 rounded-full"
+									></div>
+									</div>
+								</div>
+								</div>
+								<p class="mt-1.5 text-xs leading-3 text-gray-400">
+								Yearly target
+								</p>
+							</div>
+							</div>
+						</div>
+						<div class="lg:flex justify-between w-full items-center">
+							<div
+							class="py-3 md:px-4 flex items-center bg-gray-50 rounded-xl"
+							>
+							<p
+								class="text-xs font-medium leading-none text-center text-gray-500"
+							>
+								Show:
+							</p>
+							<div class="px-2 sm:px-3.5 border-r border-gray-300">
+								<p class="text-xs leading-none text-gray-800">Hour</p>
+							</div>
+							<div class="px-2 sm:px-3.5 border-r border-gray-300">
+								<p class="text-xs leading-none text-gray-800">Day</p>
+							</div>
+							<div class="px-2 sm:px-3.5 border-r border-gray-300">
+								<p class="text-xs leading-none text-gray-800">Week</p>
+							</div>
+							<div class="px-2 sm:px-3.5 border-r border-gray-300">
+								<p class="text-xs leading-none text-gray-800">Month</p>
+							</div>
+							<div class="px-2 sm:px-3.5">
+								<p class="text-xs font-bold leading-none text-indigo-700">
+								Year
+								</p>
+							</div>
+							</div>
+							<div class="flex items-center mt-4 lg:mt-0">
+							<div class="flex items-center">
+								<div class="w-4 h-4 bg-pink-300 rounded-full"></div>
+								<p class="text-xs leading-none ml-1.5">Components</p>
+							</div>
+							<div class="flex items-center ml-4">
+								<div class="w-4 h-4 bg-orange rounded-full"></div>
+								<p class="text-xs leading-none ml-1.5">Templates</p>
+							</div>
+							</div>
+						</div>
+						<div class="mt-8">
+							<canvas id="line_chart" ref="line_chart" height="30px" width="100%"></canvas>
+						</div>
+						<div class="mt-5 md:mt-10 border rounded-lg border-gray-100">
+							<div class="py-4 md:py-6 pl-4 md:pl-6">
+							<p
+								class="text-base md:text-lg lg:text-xl font-bold leading-tight text-gray-800"
+							>
+								Orders
+							</p>
+							</div>
+							<div class="overflow-x-auto">
+							<table class="w-full whitespace-nowrap">
+								<thead>
+								<tr
+									class="bg-gray-50 h-16 w-full text-sm leading-none text-gray-800"
+								>
+									<th class="font-normal text-left pl-8">Date</th>
+									<th class="font-normal text-left px-10 lg:px-6 xl:px-0">
+									Product
+									</th>
+									<th class="font-normal text-left px-10 lg:px-6 xl:px-0">
+									Amount
+									</th>
+									<th class="font-normal text-left px-10 lg:px-6 xl:px-0">
+									Customer
+									</th>
+									<th class="font-normal text-left px-10 lg:px-6 xl:px-0">
+									Order #
+									</th>
+									<th class="font-normal text-left px-10 lg:px-6 xl:px-0">
+									Status
+									</th>
+									<th class="font-normal text-left">Confirmation</th>
+								</tr>
+								</thead>
+								<tbody class="w-full">
+								<tr
+									class="h-20 text-sm leading-none text-gray-800 border-b border-gray-100"
+								>
+									<td class="pl-8">06/02/2020</td>
+									<td class="font-medium px-10 lg:px-6 xl:px-0">
+									Apple Macbook 2020
+									<p class="text-gray-600 font-normal mt-2">
+										PID: 982 0192
+									</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">$2200</td>
+									<td class="font-medium px-10 lg:px-6 xl:px-0">
+									Samantha Smith
+									<p class="text-gray-600 font-normal mt-2">
+										samantha@gmail.com
+									</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">
+									<p class="underline text-blue-500">WMC0191</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">
+									<div
+										class="flex items-center justify-center w-20 h-6 bg-yellow-100 rounded-full"
+									>
+										<p class="text-xs leading-3 text-yellow-600">
+										Pending
+										</p>
+									</div>
+									</td>
+									<td>
+									<button
+										class="flex items-center justify-center px-4 py-3 w-32 h-9 bg-indigo-50 hover:bg-indigo-100 rounded xl:mr-0 mr-4"
+									>
+										<p class="text-sm leading-none text-indigo-700">
+										Confirm Order
+										</p>
+									</button>
+									</td>
+								</tr>
+								<tr
+									class="h-20 text-sm leading-none text-gray-800 border-b border-gray-100"
+								>
+									<td class="pl-8">06/02/2020</td>
+									<td class="font-medium px-10 lg:px-6 xl:px-0">
+									Apple Macbook 2020
+									<p class="text-gray-600 font-normal mt-2">
+										PID: 982 0192
+									</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">$2200</td>
+									<td class="font-medium px-10 lg:px-6 xl:px-0">
+									Samantha Smith
+									<p class="text-gray-600 font-normal mt-2">
+										samantha@gmail.com
+									</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">
+									<p class="underline text-blue-500">WMC0191</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">
+									<div
+										class="flex items-center justify-center w-20 h-6 bg-yellow-100 rounded-full"
+									>
+										<p class="text-xs leading-3 text-yellow-600">
+										Pending
+										</p>
+									</div>
+									</td>
+									<td>
+									<button
+										class="flex items-center justify-center px-4 py-3 w-32 h-9 bg-indigo-50 hover:bg-indigo-100 rounded xl:mr-0 mr-4"
+									>
+										<p class="text-sm leading-none text-indigo-700">
+										Confirm Order
+										</p>
+									</button>
+									</td>
+								</tr>
+								<tr
+									class="h-20 text-sm leading-none text-gray-800 border-b border-gray-100"
+								>
+									<td class="pl-8">06/02/2020</td>
+									<td class="font-medium px-10 lg:px-6 xl:px-0">
+									Apple Macbook 2020
+									<p class="text-gray-600 font-normal mt-2">
+										PID: 982 0192
+									</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">$2200</td>
+									<td class="font-medium px-10 lg:px-6 xl:px-0">
+									Samantha Smith
+									<p class="text-gray-600 font-normal mt-2">
+										samantha@gmail.com
+									</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">
+									<p class="underline text-blue-500">WMC0191</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">
+									<div
+										class="flex items-center justify-center w-20 h-6 bg-green-100 rounded-full"
+									>
+										<p class="text-xs leading-3 text-green-600">
+										Shipped
+										</p>
+									</div>
+									</td>
+									<td></td>
+								</tr>
+								<tr class="h-20 text-sm leading-none text-gray-800">
+									<td class="pl-8">06/02/2020</td>
+									<td class="font-medium px-10 lg:px-6 xl:px-0">
+									Apple Macbook 2020
+									<p class="text-gray-600 font-normal mt-2">
+										PID: 982 0192
+									</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">$2200</td>
+									<td class="font-medium px-10 lg:px-6 xl:px-0">
+									Samantha Smith
+									<p class="text-gray-600 font-normal mt-2">
+										samantha@gmail.com
+									</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">
+									<p class="underline text-blue-500">WMC0191</p>
+									</td>
+									<td class="px-10 lg:px-6 xl:px-0">
+									<div
+										class="flex items-center justify-center w-20 h-6 bg-red-100 rounded-full"
+									>
+										<p class="text-xs leading-3 text-red-600">
+										Cancelled
+										</p>
+									</div>
+									</td>
+									<td></td>
+								</tr>
+								</tbody>
+							</table>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div
+						class="xl:w-1/4 2xl:w-1/5 xl:pl-8 pb-7 flex lg:flex-col md:flex-row flex-col w-full pl-4 xl:pr-0 pr-4"
+					>
+						<div class="md:w-full sm:w-1/2 w-full">
+						<p class="text-base font-semibold text-gray-800">
+							Recent Updates
+						</p>
+						<div class="mt-4">
+							<div
+							class="flex bg-white shadow items-center w-full justify-between rounded py-2 pl-2 pr-4"
+							>
+							<div class="flex items-center">
+								<div class="py-3 px-3 bg-purple-100 rounded-sm">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+								>
+									<path
+									d="M9 21C10.1046 21 11 20.1046 11 19C11 17.8954 10.1046 17 9 17C7.89543 17 7 17.8954 7 19C7 20.1046 7.89543 21 9 21Z"
+									stroke="#A78BFA"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21Z"
+									stroke="#A78BFA"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M3 3H5L7 15C7.21572 15.6135 7.62494 16.1402 8.16602 16.501C8.7071 16.8617 9.35075 17.0368 10 17H17C17.6493 17.0368 18.2929 16.8617 18.834 16.501C19.3751 16.1402 19.7843 15.6135 20 15L21 8H5.8"
+									stroke="#A78BFA"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+								</svg>
+								</div>
+								<p class="pl-5 text-sm font-medium text-gray-600">
+								Order# IDO-214-152
+								</p>
+							</div>
+							<p class="text-xs font-semibold text-gray-400">$145</p>
+							</div>
+							<div class="mt-4 bg-white shadow rounded py-2 pl-2 pr-4">
+							<div class="flex items-center">
+								<div class="py-3 px-3 bg-teal-400 rounded-sm">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+								>
+									<path
+									d="M12 20L9 17H7C6.20435 17 5.44129 16.6839 4.87868 16.1213C4.31607 15.5587 4 14.7956 4 14V8C4 7.20435 4.31607 6.44129 4.87868 5.87868C5.44129 5.31607 6.20435 5 7 5H17C17.7956 5 18.5587 5.31607 19.1213 5.87868C19.6839 6.44129 20 7.20435 20 8V14C20 14.7956 19.6839 15.5587 19.1213 16.1213C18.5587 16.6839 17.7956 17 17 17H15L12 20Z"
+									stroke="#2DD4BF"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M8 9H16"
+									stroke="#2DD4BF"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M8 13H14"
+									stroke="#2DD4BF"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+								</svg>
+								</div>
+								<p class="text-sm font-medium pl-5">
+								New message from
+								<span class="text-blue-500">@kelly190</span>
+								</p>
+							</div>
+							</div>
+							<div
+							class="mt-4 flex bg-white shadow items-center w-full justify-between rounded py-2 pl-2 pr-4"
+							>
+							<div class="flex items-center">
+								<div class="py-3 px-3 bg-gray-100 rounded-sm">
+								<svg
+									class="text-gray-400"
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+								>
+									<path
+									d="M14 3V7C14 7.26522 14.1054 7.51957 14.2929 7.70711C14.4804 7.89464 14.7348 8 15 8H19"
+									stroke="currentColor"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M17 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H14L19 8V19C19 19.5304 18.7893 20.0391 18.4142 20.4142C18.0391 20.7893 17.5304 21 17 21Z"
+									stroke="currentColor"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M12 11V17"
+									stroke="currentColor"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M9 14L12 11L15 14"
+									stroke="currentColor"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+								</svg>
+								</div>
+								<p class="pl-5 text-sm font-medium text-gray-600">
+								New lead uploaded
+								</p>
+							</div>
+							<p class="text-xs font-semibold text-gray-400">40 min</p>
+							</div>
+							<div
+							class="flex mt-4 bg-white shadow items-center w-full justify-between rounded py-2 pl-2 pr-4"
+							>
+							<div class="flex items-center">
+								<div class="py-3 px-3 bg-purple-100 rounded-sm">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+								>
+									<path
+									d="M9 21C10.1046 21 11 20.1046 11 19C11 17.8954 10.1046 17 9 17C7.89543 17 7 17.8954 7 19C7 20.1046 7.89543 21 9 21Z"
+									stroke="#A78BFA"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21Z"
+									stroke="#A78BFA"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M3 3H5L7 15C7.21572 15.6135 7.62494 16.1402 8.16602 16.501C8.7071 16.8617 9.35075 17.0368 10 17H17C17.6493 17.0368 18.2929 16.8617 18.834 16.501C19.3751 16.1402 19.7843 15.6135 20 15L21 8H5.8"
+									stroke="#A78BFA"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+								</svg>
+								</div>
+								<p class="pl-5 text-sm font-medium text-gray-600">
+								Order# IDO-321-324
+								</p>
+							</div>
+							<p class="text-xs font-semibold text-gray-400">$103</p>
+							</div>
+							<div
+							class="flex mt-4 bg-white shadow items-center w-full justify-between rounded py-2 pl-2 pr-4"
+							>
+							<div class="flex items-center">
+								<div class="py-3 px-3 bg-green-100 rounded-sm">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+								>
+									<path
+									d="M14 3V7C14 7.26522 14.1054 7.51957 14.2929 7.70711C14.4804 7.89464 14.7348 8 15 8H19"
+									stroke="#4ADE80"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M17 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H14L19 8V19C19 19.5304 18.7893 20.0391 18.4142 20.4142C18.0391 20.7893 17.5304 21 17 21Z"
+									stroke="#4ADE80"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M9 7H10"
+									stroke="#4ADE80"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M9 13H15"
+									stroke="#4ADE80"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M13 17H15"
+									stroke="#4ADE80"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+								</svg>
+								</div>
+								<p class="pl-5 text-sm font-medium text-gray-600">
+								Invoice generated
+								</p>
+							</div>
+							<p class="text-xs text-blue-500">View</p>
+							</div>
+						</div>
+						</div>
+						<div
+						class="xl:mt-7 md:mt-0 sm:mt-7 mt-7 lg:pl-0 md:pl-4 sm:pl-0 pl-0 md:w-full sm:w-1/2 w-full"
+						>
+						<p class="text-base font-semibold text-gray-800">
+							Upcoming events
+						</p>
+						<div class="mt-4 bg-white rounded py-3 pl-4 pr-3">
+							<div class="flex items-center justify-between">
+							<div class="flex items-center">
+								<div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+								<p class="ml-1 text-xs font-italic text-purple-400">
+								11:30 AM
+								</p>
+							</div>
+							<div class="relative">
+								<button class="focus:outline-none">
+								<svg
+									@click="drop1 = !drop1"
+									class="dropbtn"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 20 20"
+									fill="none"
+								>
+									<path
+									d="M4.16668 10.8333C4.62691 10.8333 5.00001 10.4602 5.00001 10C5.00001 9.53976 4.62691 9.16666 4.16668 9.16666C3.70644 9.16666 3.33334 9.53976 3.33334 10C3.33334 10.4602 3.70644 10.8333 4.16668 10.8333Z"
+									stroke="#6B7280"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M9.99999 10.8333C10.4602 10.8333 10.8333 10.4602 10.8333 10C10.8333 9.53976 10.4602 9.16666 9.99999 9.16666C9.53975 9.16666 9.16666 9.53976 9.16666 10C9.16666 10.4602 9.53975 10.8333 9.99999 10.8333Z"
+									stroke="#6B7280"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M15.8333 10.8333C16.2936 10.8333 16.6667 10.4602 16.6667 10C16.6667 9.53976 16.2936 9.16666 15.8333 9.16666C15.3731 9.16666 15 9.53976 15 10C15 10.4602 15.3731 10.8333 15.8333 10.8333Z"
+									stroke="#6B7280"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+								</svg>
+								</button>
+								<div
+								v-if="drop1"
+								class="dropdown-content bg-white shadow w-24 absolute z-30 -ml-16 xl:-ml-20 2xl:-ml-20"
+								>
+								<div
+									class="text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white"
+								>
+									<p>Edit</p>
+								</div>
+								<div
+									class="text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white"
+								>
+									<p>Delete</p>
+								</div>
+								</div>
+							</div>
+							</div>
+							<div class="mt-2">
+							<p class="text-sm text-gray-600">
+								Meeting with stake holders
+							</p>
+							<p class="text-xs italic font-italic text-gray-400">
+								Discussion on the template design
+							</p>
+							</div>
+						</div>
+						<div class="mt-4 bg-white rounded py-3 pl-4 pr-3">
+							<div class="flex items-center justify-between">
+							<div class="flex items-center">
+								<div class="w-2 h-2 bg-red-400 rounded-full"></div>
+								<p class="ml-1 text-xs text-red-400">02:30 PM</p>
+							</div>
+							<div class="relative">
+								<button class="focus:outline-none">
+								<svg
+									@click="drop2 = !drop2"
+									class="dropbtn"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 20 20"
+									fill="none"
+								>
+									<path
+									d="M4.16668 10.8333C4.62691 10.8333 5.00001 10.4602 5.00001 10C5.00001 9.53976 4.62691 9.16666 4.16668 9.16666C3.70644 9.16666 3.33334 9.53976 3.33334 10C3.33334 10.4602 3.70644 10.8333 4.16668 10.8333Z"
+									stroke="#6B7280"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M9.99999 10.8333C10.4602 10.8333 10.8333 10.4602 10.8333 10C10.8333 9.53976 10.4602 9.16666 9.99999 9.16666C9.53975 9.16666 9.16666 9.53976 9.16666 10C9.16666 10.4602 9.53975 10.8333 9.99999 10.8333Z"
+									stroke="#6B7280"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+									<path
+									d="M15.8333 10.8333C16.2936 10.8333 16.6667 10.4602 16.6667 10C16.6667 9.53976 16.2936 9.16666 15.8333 9.16666C15.3731 9.16666 15 9.53976 15 10C15 10.4602 15.3731 10.8333 15.8333 10.8333Z"
+									stroke="#6B7280"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									/>
+								</svg>
+								</button>
+								<div
+								v-if="drop2"
+								class="dropdown-content bg-white shadow w-24 absolute z-30 -ml-16 xl:-ml-20 2xl:-ml-20"
+								>
+								<div
+									class="text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white"
+								>
+									<p>Edit</p>
+								</div>
+								<div
+									class="text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white"
+								>
+									<p>Delete</p>
+								</div>
+								</div>
+							</div>
+							</div>
+							<div class="mt-2">
+							<p class="text-sm text-gray-600">
+								Office interior discussion
+							</p>
+							<p class="text-xs text-gray-400">
+								What to add and what not to add
+							</p>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
     </app-layout>
 </template>
 
 <script>
+	import { Chart } from 'chart.js'
     import $ from 'jquery'
     import AppLayout from '@/Layouts/AppLayout'
 
@@ -1525,83 +776,6 @@
             };
         },
 
-        mounted() {
-            $(document).ready(function () {
-                $("#notification-btn").click(function () {
-                    $("#notification-modal").toggle();
-                });
-                $("#task-btn").click(function () {
-                    $("#task-modal").fadeIn();
-                });
-                $("#close-task,#cancel-task-modal").click(function () {
-                    $("#task-modal").fadeOut();
-                });
-
-                $(".progress-div").mouseenter(function () {
-                    $(this).find(".progress-tag").show();
-                });
-                $(".member-list-main").click(function () {
-                    $(this).find(".member-tooltip").toggle();
-                });
-
-                $(".progress-div").mouseleave(function () {
-                    $(this).find(".progress-tag").hide();
-                });
-
-                $("#weekly-div").click(function () {
-                    $("#weekly-list").toggle();
-                });
-                $("#weeklybutton").click(function () {
-                    $("#weekly-toggle").toggle();
-                });
-                $("#progress-bar-1").animate(
-                    {
-                    width: "75%",
-                    },
-                    {
-                    queue: false,
-                    duration: 3000,
-                    }
-                );
-                $("#progress-bar-2").animate(
-                    {
-                    width: "58%",
-                    },
-                    {
-                    queue: false,
-                    duration: 3000,
-                    }
-                );
-                $("#progress-bar-3").animate(
-                    {
-                    width: "41%",
-                    },
-                    {
-                    queue: false,
-                    duration: 3000,
-                    }
-                );
-                $("#progress-bar-4").animate(
-                    {
-                    width: "50%",
-                    },
-                    {
-                    queue: false,
-                    duration: 3000,
-                    }
-                );
-
-                $("#main-notification").css("transform", "translate(120%,0px)");
-                $("#main-notification").removeClass("hidden");
-                $("#edit-project").click(function () {
-                    $("#main-notification").css("transform", "translate(0%,0px)");
-                    setTimeout(function () {
-                    $("#main-notification").css("transform", "translate(120%,0px)");
-                    }, 3000);
-                });
-            });
-        
-        },
         methods: {
             WeeklyFilter(text) {
                 $("#weekFilter").html(text);
@@ -1622,3 +796,105 @@
         },
     }
 </script>
+
+
+<style>
+body {
+  font-family: "Inter", sans-serif;
+}
+.bg-overlays {
+  opacity: 98%;
+  background-color: #3f3f46;
+}
+
+.bg-header-dashboard {
+  background: linear-gradient(87.8deg, #4338ca 6.19%, #8b5cf6 99.43%);
+}
+.bg-lime-500 {
+  background: #84cc16;
+}
+.bg-orange {
+  background: #fdba74;
+}
+.bg-teal-400 {
+  background: #ccfbf1;
+}
+.bg-amber {
+  background: #fef3c7;
+}
+.bg-green {
+  background: #22c55e;
+}
+.bg-green-progress {
+  background: #4ade80;
+}
+.bg-cyan {
+  background: #06b6d4;
+}
+.text-amber {
+  color: #b45309;
+}
+.text-green {
+  color: #22c55e;
+}
+.checkbox:checked + .check-icon {
+  display: flex;
+}
+.bg-green-light {
+  background: #dcfce7;
+}
+.text-light-blue {
+  color: #818cf8;
+}
+.checkbox:checked + .check-icon {
+  display: flex;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* margin between thead and tbody */
+
+.target-body:before {
+  line-height: 8px;
+  content: "_";
+  color: white;
+  display: block;
+}
+.target-body2:before {
+  line-height: 3px;
+  content: "_";
+  color: white;
+  display: block;
+}
+
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+</style>

@@ -53,8 +53,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(client, key) in clients" :key="key" class="cursor-pointer hover:bg-gray-100">
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    <tr v-for="(client, key) in clients.data" :key="key" class="cursor-pointer hover:bg-gray-100">
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
                             <inertia-link :href="route('clients.show', client.unique_id)">
                                 <div class="flex items-center">
                                     <div v-if="client.company_photo != 'client_default.png'">
@@ -64,8 +64,8 @@
                                         <img src="https://cdn.tuk.dev/assets/templates/olympus/projects.png" :alt="client.company_name" class="w-10 h-10 object-cover">
                                     </div>
                                     <div class="pl-4">
-                                        <p class="font-medium">{{ client.company_name }}</p>
-                                        <p class="text-xs leading-3 text-gray-600 pt-2">{{ client.category.name }}</p>
+                                        <p>{{ client.company_name }}</p>
+                                        <p class="text-xs leading-3 text-gray-600 mt-1">{{ client.category.name }}</p>
                                     </div>
                                 </div>
                             </inertia-link>
@@ -79,7 +79,7 @@
                             </div>
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            <p class="font-medium">1 Project (s)</p>
+                            <p class="font-medium">{{ client.project_count }} Project (s)</p>
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                             <p class="font-medium">---</p>
@@ -116,6 +116,7 @@
     import JetDropdownLink from '@/Jetstream/DropdownLink'
     import FilterPopup from '@/Jetstream/FilterPopup'
     import Popup from '@/Mixins/Index'
+    import Pagination from '@/Jetstream/Pagination'
 
     export default {
         mixins: [Popup],
@@ -125,7 +126,8 @@
         components: {
             JetDropdown,
             JetDropdownLink,
-            FilterPopup
+            FilterPopup,
+            Pagination
         },
     }
 </script>

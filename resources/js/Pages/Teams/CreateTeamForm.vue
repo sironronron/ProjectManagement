@@ -31,7 +31,7 @@
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="description" value="Team Description" />
                 <jet-textarea id="description" class="mt-1 block w-full" v-model="form.description" autofocus />
-                <jet-input-error :message="form.errors.message" :class="mt-2" />
+                <jet-input-error :message="form.errors.description" :class="mt-2" />
             </div>
         </template>
 

@@ -38,7 +38,7 @@ class CreateProjectsTable extends Migration
             $table->foreign('category_id')->references('id')->on('project_categories')->onDelete('cascade');
             
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamp('start_date')->nullable();
             $table->timestamp('end_date')->nullable();
             $table->boolean('unscheduled')->default(0);

@@ -38,8 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'remember_token',
         'two_factor_recovery_codes',
-        'two_factor_secret',
-        'id'
+        'two_factor_secret'
     ];
 
     /**
@@ -59,8 +58,4 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function getRouteKeyName () {
-        return 'unique_id';
-    }
 }

@@ -50,7 +50,7 @@ class ClientRecentActivityController extends Controller
             'user_id' => Auth::user()->id,
             'activity' => $request['activity'],
             'link_title' => $request['link_title'],
-            'link' => null
+            'link' => $request['link']
         ]);
     }
 

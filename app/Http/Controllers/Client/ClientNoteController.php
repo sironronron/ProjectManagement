@@ -57,11 +57,11 @@ class ClientNoteController extends Controller
 
         try {
             $client = Client::where('unique_id', $request->client_id)
-                ->first()->id;
+                ->first();
 
             $client_note = ClientNote::create([
                 'unique_id' => Str::uuid(),
-                'client_id' => $client,
+                'client_id' => $client->id,
                 'user_id' => Auth::user()->id,
                 'title' => $request->title,
                 'subtitle' => $request->subtitle,
@@ -71,10 +71,10 @@ class ClientNoteController extends Controller
 
             // Create new recent activity log
             $data = [];
-            $data['client_id'] = $client;
+            $data['client_id'] = $client->id;
             $data['activity'] = 'Added a new note!';
             $data['link_title'] = $client_note->title;
-            $data['link'] = `'client_notes.show', { client_id: $client, client_note_id: $client_note->unique_id }`;
+            $data['link'] = '/clients/note/' . $client->unique_id . '/show/' . $client_note->unique_id; 
 
             $client_recent_activity = new ClientRecentActivityController;
             $client_recent_activity->store($data);

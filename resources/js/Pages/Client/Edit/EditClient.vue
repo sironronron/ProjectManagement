@@ -10,7 +10,7 @@
             </h2>
         </template>
         
-        <div class="py-12 max-w-7xl mx-auto py-6 mx-4 sm:px-6 lg:px-8">
+        <div class="py-12 container mx-auto py-6">
             <client-details :client="client" />
 
             <div class="mb-5">

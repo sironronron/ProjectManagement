@@ -12,6 +12,10 @@ use App\Models\Client\ClientUser;
 use App\Models\Client\ClientRecentActivity;
 use App\Models\Client\ClientNote;
 
+// Project Models
+use App\Models\Project;
+use App\Models\Project\ProjectTeam;
+
 // Inertia
 use Inertia\Inertia;
 
@@ -19,6 +23,7 @@ use Inertia\Inertia;
 use Str;
 use Auth;
 use Hash;
+use Carbon\Carbon;
 
 // User Models
 use App\Models\User;
@@ -38,7 +43,12 @@ class ClientController extends Controller
         $user = Auth::user();
 
         $clients = Client::with(['owner', 'category'])
-            ->get();
+            ->paginate(10);
+
+        $clients->getCollection()->transform(function ($query) {
+            $query->project_count = Project::where('client_id', $query->id)->count();
+            return $query;
+        });
 
         return Inertia::render('Client/Index', [
             'clients' => $clients
@@ -160,6 +170,12 @@ class ClientController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
+        $recent_activities->getCollection()->transform(function ($query) {
+            $query->actual_time = $query->created_at->diffForHumans();
+            
+            return $query;
+        });
+
         return Inertia::render('Client/Show/Dashboard', [
             'client' => $client,
             'recent_activities' => $recent_activities
@@ -201,8 +217,52 @@ class ClientController extends Controller
             ->with(['category', 'owner'])
             ->first();
 
+        $projects = Project::where('client_id', $client->id)
+            ->with(['category', 'client'])
+            ->latest()
+            ->paginate(10);
+
+            $projects->getCollection()->transform(function ($query) {
+                if ($query->unscheduled != true) {
+                    $end = Carbon::parse($query->end_date);
+    
+                    $current = Carbon::now();
+                    $length = $end->diffInDays($current);
+    
+                    $query->remaining_days = $length;
+    
+                    $query->budget = '₱' . number_format($query->budget, 2);
+                    $query->remaining_budget = '₱' . number_format($query->remaining_budget, 2);
+    
+                    $project_teams = ProjectTeam::where('project_id', $query->id)
+                        ->distinct()
+                        ->get()
+                        ->map(function ($query) {
+                            $query->members = $query->team->allUsers();
+                            return $query;
+                        });
+                    
+                    $project_teams = $project_teams->pluck('members')->toArray();
+    
+                    $user_members = [];
+    
+                    foreach ($project_teams as $team) {
+                        foreach ($team as $member) {
+                            if (!in_array($member, $user_members)) {
+                                $user_members[] = $member;
+                            }
+                        }
+                    }
+    
+                    $query->members = $user_members;
+    
+                    return $query;
+                }
+            });
+
         return Inertia::render('Client/Show/Projects', [
-            'client' => $client
+            'client' => $client,
+            'projects' => $projects
         ]);
     }
 
@@ -299,6 +359,7 @@ class ClientController extends Controller
             
             $client_category = ClientCategory::where('unique_id', $request->category_id)->first();
             
+            $client->company_name           = $request->company_name;
             $client->company_phone_number   = $request->company_phone_number;
             $client->category_id            = $client_category->id;
             $client->address                = $request->address;

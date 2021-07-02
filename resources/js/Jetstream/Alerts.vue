@@ -58,7 +58,6 @@
         },
 
         mounted() {
-
             if (this.flash.success != null) {
                 $("#main-notification").removeClass("hidden");
                 $("#main-notification").css("transform", "translate(0%,0px)");

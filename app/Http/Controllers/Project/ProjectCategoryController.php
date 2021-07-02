@@ -151,7 +151,6 @@ class ProjectCategoryController extends Controller
             }
 
             \Log::error($e);
-
             return redirect()->back()->with('failed', 'Something went wrong!');
         }
     }

@@ -8,7 +8,7 @@
             </h2>
         </template>
 
-        <div class="py-12 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="py-12 container mx-auto py-6">
             <client-details :client="client" />
 
             <!-- Dashboard details -->
@@ -54,10 +54,10 @@
                                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
                                         {{ activity.activity }} 
 
-                                        <span class="text-indigo-500">{{ activity.link_title }}</span>
+                                        <inertia-link :href="activity.link" class="text-indigo-500">{{ activity.link_title }}</inertia-link>
                                     </td>
                                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        {{ activity.created_at }}
+                                        {{ activity.actual_time }}
                                     </td>
                                 </tr>
                             </tbody>
