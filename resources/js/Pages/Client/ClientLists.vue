@@ -97,7 +97,7 @@
                     </tr>
                 </tbody>
             </table>
-            <div v-if="clients.length == 0" class="py-4">
+            <div v-if="clients.data.length == 0" class="py-4">
                 <p class="text-leading text-sm text-gray-400 text-center">
                     There's no record of clients yet!
                 </p>

@@ -11,7 +11,7 @@
         <template #form>
             <!-- Company Name -->
             <div class="col-span-6 sm:col-span-4">
-                <h1 class="text-base mb-4">General Information</h1>
+                <h1 class="text-base mb-4 font-semibold">General Information</h1>
 
                 <jet-label for="company_name" value="Company Name" />
                 <jet-input id="company_name" type="text" class="mt-1 block w-full" v-model="form.company_name" />
@@ -33,7 +33,7 @@
 
             <!-- First Name -->
             <div class="col-span-6 sm:col-span-4">
-                <h1 class="text-base mb-4">Owner Information</h1>
+                <h1 class="text-base mb-4 font-semibold">Owner Information</h1>
 
                 <jet-label for="first_name" value="Client's First Name" />
                 <jet-input id="first_name" type="text" class="mt-1 block w-full" v-model="form.first_name" />
@@ -56,7 +56,7 @@
 
             <!-- Category -->
             <div class="col-span-6 sm:col-span-4">
-                <h1 class="text-base mb-4">Additional Information</h1>
+                <h1 class="text-base mb-4 font-semibold">Additional Information</h1>
 
                 <jet-label for="category" value="Category" />
                 <select class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" v-model="form.category_id">

@@ -440,6 +440,7 @@
     import ProjectDetails from './ProjectDetails'
 	import Pagination from '@/Jetstream/Pagination'
     import $ from 'jquery'
+    import Alerts from '@/Jetstream/Alerts'
 
     export default {
         props: ['project', 'billing', 'billing_rate', 'budget', 'remaining_budget', 'recent_activities', 'clients', 'project_teams_count', 'project_milestones_count'],
@@ -447,7 +448,8 @@
         components: {
             AppLayout,
             ProjectDetails,
-			Pagination
+			Pagination,
+			Alerts
         },
         
         mounted() {

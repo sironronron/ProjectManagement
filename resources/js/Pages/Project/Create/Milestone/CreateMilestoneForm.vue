@@ -29,6 +29,12 @@
                             <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" />
                             <jet-input-error :message="form.errors.name" class="mt-2" />
                         </div>
+
+                        <div class="col-span-6 sm:col-span-4">
+                            <jet-label for="order_by" value="Order By" />
+                            <jet-input id="order_by" type="number" class="mt-1 block w-full" v-model="form.order_by" />
+                            <jet-input-error :message="form.errors.order_by" class="mt-2" />
+                        </div>
                     </template>
 
                     <template #actions>
@@ -80,6 +86,7 @@
             return {
                 form: this.$inertia.form({
                     name: '',
+                    order_by: '',
                     project_id: this.project.unique_id
                 })
             }

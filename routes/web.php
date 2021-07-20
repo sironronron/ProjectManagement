@@ -10,6 +10,11 @@ use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Project\ProjectTeamController;
 use App\Http\Controllers\Project\ProjectCategoryController;
 use App\Http\Controllers\Project\ProjectMilestoneController;
+use App\Http\Controllers\Project\ProjectTaskController;
+use App\Http\Controllers\Project\ProjectTaskStatusController;
+use App\Http\Controllers\Project\Task\ChecklistController;
+use App\Http\Controllers\Project\Task\TaskAttachmentController;
+use App\Http\Controllers\Project\Task\TaskCommentController;
 
 // Clients
 use App\Http\Controllers\Client\ClientController;
@@ -105,6 +110,41 @@ Route::group(['middleware' => 'auth:sanctum', 'verified'], function () {
         Route::group(['prefix' => 'tasks'], function () {
             // Index
             Route::get('/{project}/show', [ProjectController::class, 'show_tasks'])->name('projects.show.tasks');
+
+            // Create
+            Route::get('/{project}/create', [ProjectTaskController::class, 'create'])->name('projects.create.tasks');
+            Route::post('/task/store', [ProjectTaskController::class, 'store'])->name('projects.store.tasks');
+            Route::post('/task-status/store', [ProjectTaskStatusController::class, 'store'])->name('projects.store.task_status');
+
+                // Add new item in checklist
+                Route::post('/task-checklist/new/item', [ChecklistController::class, 'store'])->name('projects.store.checklist.new_item');
+                Route::put('/task-checklist/item/update/{item}', [ChecklistController::class, 'update'])->name('projects.store.checklist.item_update');
+                Route::put('/task-checklist/item/check/{item}', [ChecklistController::class, 'update_status'])->name('projects.store.checklist.item_check');
+                Route::delete('/task-checklist/item/delete/{item}', [ChecklistController::class, 'destroy'])->name('projects.store.checklist.item_delete');
+
+                // Attachments
+                Route::post('/task/upload/attachments', [TaskAttachmentController::class, 'store'])->name('projects.store.attachments.upload');
+                Route::get('/task/download/attachments/{file}', [TaskAttachmentController::class, 'download'])->name('projects.store.attachments.download');
+                Route::delete('/task/delete/attachment/{file}', [TaskAttachmentController::class, 'destroy'])->name('projects.store.attachments.delete');
+
+                // Comments
+                Route::post('/task/store/comments', [TaskCommentController::class, 'store'])->name('projects.store.comments.store');
+                Route::put('/task/update/comments/{comment}', [TaskCommentController::class, 'update'])->name('projects.store.comments.update');
+                Route::delete('/task/delete/comments/{comment}', [TaskCommentController::class, 'destroy'])->name('projects.store.comments.destroy');
+
+            // Show
+            Route::get('/{project}/show/{task}/view', [ProjectTaskController::class, 'show'])->name('projects.view.tasks');
+
+            // Edit 
+            Route::get('/task-status/{project}/edit/{project_task_status}', [ProjectTaskStatusController::class, 'edit'])->name('projects.edit.task_status');
+            Route::put('/task-status/{project}/edit/{project_task_status}/update', [ProjectTaskStatusController::class, 'update'])->name('projects.update.task_status');
+            
+            // Update Task 
+                // Description
+                Route::put('/{project_task}/update/description', [ProjectTaskController::class, 'update_description'])->name('projects.update.tasks.description');
+
+            // Delete
+            Route::delete('/task-status/{status}', [ProjectTaskStatusController::class, 'destroy'])->name('projects.delete.task_status');
         });
     });
 

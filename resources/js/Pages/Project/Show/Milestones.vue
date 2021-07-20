@@ -39,6 +39,9 @@
 								    <th class="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
 									    Name
 									</th>
+									<th class="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+									    Order By
+									</th>
                                     <th class="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
 									    All Tasks
 									</th>
@@ -57,6 +60,9 @@
 							    <tr v-for="(milestone, key) in milestones.data" :key="key" class="cursor-pointer hover:bg-gray-100">
 									<td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-base whitespace-nowrap p-4">
 									    <p>{{ milestone.name }}</p>
+									</td>
+									<td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+									    <p class="font-medium">{{ milestone.order_by }}</p>
 									</td>
                                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
 									    <p class="font-medium">0</p>

@@ -16,7 +16,8 @@ class ProjectTaskStatus extends Model
 
     protected $fillable = [
         'project_id',
-        'name'
+        'name',
+        'order_by'
     ];
 
     public function project () {

@@ -32,11 +32,11 @@ class CreateClientsTable extends Migration
             $table->uuid('unique_id')->index();
 
             // Foreign Keys
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('client_categories')->onDelete('cascade');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('client_categories')->onDelete('set null');
 
             // Basic Details
             $table->string('company_photo')->default('client_default.png');
@@ -67,8 +67,8 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
         Schema::dropIfExists('client_categories');
+        Schema::dropIfExists('clients');
         Schema::dropIfExists('client_users');
     }
 }

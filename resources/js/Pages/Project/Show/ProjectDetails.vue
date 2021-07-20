@@ -48,7 +48,7 @@
                         </inertia-link>
 
                         <inertia-link :href="route('projects.show.tasks', project.unique_id)">
-                            <li class="font-normal flex justify-center items-center text-sm mr-4 sm:mr-8 md:mr-8 lg:mr-8 xl:mr-8 border-b-2 pb-4 hover:text-indigo-700" :class="route().current('projects.show.tasks') ? 'border-indigo-500 text-indigo-500' : 'cursor-pointer'">
+                            <li class="font-normal flex justify-center items-center text-sm mr-4 sm:mr-8 md:mr-8 lg:mr-8 xl:mr-8 border-b-2 pb-4 hover:text-indigo-700" :class="route().current('projects.show.tasks') || route().current('projects.create.tasks') || route().current('projects.edit.task_status') || route().current('projects.edit.tasks') || route().current('projects.view.tasks') ? 'border-indigo-500 text-indigo-500' : 'cursor-pointer'">
                                 Tasks
                             </li>
                         </inertia-link>

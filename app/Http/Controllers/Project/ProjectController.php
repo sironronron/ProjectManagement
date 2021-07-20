@@ -30,6 +30,7 @@ use App\Models\Project\ProjectTeam;
 use App\Models\Project\ProjectMilestone;
 use App\Models\Project\ProjectTaskStatus;
 use App\Models\Project\ProjectTask;
+use App\Models\Project\ProjectTaskAssignedTo;
 
 class ProjectController extends Controller
 {
@@ -342,7 +343,7 @@ class ProjectController extends Controller
             ->first();
 
         $milestones = ProjectMilestone::where('project_id', $project->id)
-            ->latest()
+            ->orderBy('order_by', 'asc')
             ->paginate(10);
 
         return Inertia::render('Project/Show/Milestones', [
@@ -365,7 +366,18 @@ class ProjectController extends Controller
             ->get();
 
         $project_tasks = ProjectTask::where('project_id', $project->id)
-            ->get();
+            ->with(['created_by', 'milestone', 'status'])
+            ->paginate(10);
+
+        $project_tasks->getCollection()->transform(function ($query) {
+            $query->priority = ucfirst(str_replace('_', ' ', $query->priority));
+            $query->created_on = date('Y-m-d', strtotime($query->created_at));
+            $query->assignees = ProjectTaskAssignedTo::where('task_id', $query->id)
+                ->with(['user'])
+                ->get();
+
+            return $query;
+        });
 
         return Inertia::render('Project/Show/Tasks', [
             'project' => $project,

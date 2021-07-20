@@ -1,7 +1,5 @@
 <template>
     <app-layout>
-        <alerts :flash="$page.props.flash" />
-
         <template #header>
             <h2>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -11,6 +9,8 @@
         </template>
         
         <div class="py-12 container mx-auto py-6">
+            <alerts :flash="$page.props.flash" />
+
             <client-details :client="client" />
 
             <div class="mb-5">

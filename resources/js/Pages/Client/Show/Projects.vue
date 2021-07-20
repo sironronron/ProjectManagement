@@ -88,11 +88,11 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- <div class="py-4">
+                        <div v-if="projects.data.length == 0" class="py-4">
                             <p class="text-leading text-sm text-gray-400 text-center">
-                                Client doesn't have any registered users yet!
+                                Client doesn't have any projects yet!
                             </p>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

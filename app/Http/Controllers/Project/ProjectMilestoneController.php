@@ -58,7 +58,8 @@ class ProjectMilestoneController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:50'
+            'name' => 'required|max:50',
+            'order_by' => 'required|unique:project_milestones,order_by'
         ]);
 
         try {
@@ -71,6 +72,7 @@ class ProjectMilestoneController extends Controller
             $milestone->project_id = $project->id;
             $milestone->user_id = Auth::user()->id;
             $milestone->name = $request->name;
+            $milestone->order_by = $request->order_by;
 
             $milestone->save();
 
@@ -151,7 +153,8 @@ class ProjectMilestoneController extends Controller
             ->first();
 
         $this->validate($request, [
-            'name' => 'required|max:50'
+            'name' => 'required|max:50',
+            'order_by' => 'required|unique:project_milestones,order_by,' . $milestone->id
         ]);
 
         try {
@@ -162,6 +165,7 @@ class ProjectMilestoneController extends Controller
             $milestone->project_id = $project->id;
             $milestone->user_id = Auth::user()->id;
             $milestone->name = $request->name;
+            $milestone->order_by = $request->order_by;
 
             $milestone->update();
 

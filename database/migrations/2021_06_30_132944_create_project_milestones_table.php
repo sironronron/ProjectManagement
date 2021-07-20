@@ -24,6 +24,7 @@ class CreateProjectMilestonesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->string('name', 50);
+            $table->integer('order_by');
 
             $table->timestamps();
         });

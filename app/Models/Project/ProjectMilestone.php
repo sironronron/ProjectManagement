@@ -17,7 +17,8 @@ class ProjectMilestone extends Model
         'unique_id',
         'project_id',
         'user_id',
-        'name'
+        'name',
+        'order_by'
     ];
 
     public function getRouteKeyName () {

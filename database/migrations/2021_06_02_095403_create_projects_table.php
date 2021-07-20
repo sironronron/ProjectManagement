@@ -32,10 +32,11 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->uuid('unique_id')->index();
             
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('project_categories')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('project_categories')->onDelete('set null');
             
             $table->string('name');
             $table->longText('description')->nullable();
