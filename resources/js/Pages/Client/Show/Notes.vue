@@ -8,7 +8,7 @@
             </h2>
         </template>
 
-        <div class="py-12 container mx-auto py-6">
+        <div>
             <client-details :client="client" />
 
             <!-- Notes -->

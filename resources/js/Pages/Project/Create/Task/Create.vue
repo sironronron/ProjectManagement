@@ -7,7 +7,7 @@
         </template>
 
         <div>
-            <div class="py-12 container mx-auto py-6">
+            <div>
                 <alerts v-if="!!$page.props.flash" :flash="$page.props.flash" />
 
                 <project-details :project="project" />

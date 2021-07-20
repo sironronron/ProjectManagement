@@ -14,7 +14,7 @@
         </template>
 
         <!-- Client Lists -->
-        <div class="py-12 container mx-auto py-6">
+        <div>
             <div class="xl:flex">
                 <div class="xl:w-3/4 2xl:w-4/5">
                     <client-lists :clients="clients" />

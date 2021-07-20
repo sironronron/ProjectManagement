@@ -8,7 +8,7 @@
             </h2>
         </template>
         
-        <div class="py-12 container mx-auto py-6">
+        <div>
             <alerts :flash="$page.props.flash" />
 
             <client-details :client="client" />

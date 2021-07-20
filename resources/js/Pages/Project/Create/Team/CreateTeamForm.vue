@@ -8,7 +8,7 @@
             </h2>
         </template>
 
-        <div class="py-12 container mx-auto py-6 ">
+        <div>
             <project-details :project="project" :billing="billing" :billing_rate="billing_rate" :budget="budget" :remaining_budget="remaining_budget" :project_teams_count="project_teams_count" />
 
             <div class="mt-5">

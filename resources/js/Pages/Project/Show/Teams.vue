@@ -8,7 +8,7 @@
             </h2>
         </template>
 
-        <div class="py-12 container mx-auto py-6 ">
+        <div>
             <project-details :project="project" />
 
             <div class="mt-5">
