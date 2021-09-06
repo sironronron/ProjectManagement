@@ -9,7 +9,7 @@
         <div>
             <div>
                 <div class="xl:flex">
-                    <div class="xl:w-3/4 2xl:w-4/5">
+                    <div class="xl:w-3/4">
                         <div
                             class="
                                 bg-white
@@ -1053,7 +1053,6 @@
                     <div
                         class="
                             xl:w-1/4
-                            2xl:w-1/5
                             xl:pl-8
                             pb-7
                             flex

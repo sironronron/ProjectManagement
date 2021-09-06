@@ -54,6 +54,7 @@
                         text-white
                         justify-center
                         bg-indigo-500
+                        transition
                     "
                 ></div>
             </div>

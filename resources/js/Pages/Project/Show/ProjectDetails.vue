@@ -54,7 +54,7 @@
                         </inertia-link>
 
                         <inertia-link :href="route('projects.show.teams', project.unique_id)">
-                            <li class="font-normal flex justify-center items-center text-sm mr-4 sm:mr-8 md:mr-8 lg:mr-8 xl:mr-8 border-b-2 pb-4 hover:text-indigo-700" :class="route().current('projects.show.teams') || route().current('projects.create.teams') ? 'border-indigo-500 text-indigo-500' : 'cursor-pointer'">
+                            <li class="font-normal flex justify-center items-center text-sm mr-4 sm:mr-8 md:mr-8 lg:mr-8 xl:mr-8 border-b-2 pb-4 hover:text-indigo-700" :class="route().current('projects.show.teams') || route().current('projects.create.teams') || route().current('projects.show.team.members') ? 'border-indigo-500 text-indigo-500' : 'cursor-pointer'">
                                 Teams
                             </li>
                         </inertia-link>
@@ -67,7 +67,7 @@
 <script>
 import $ from "jquery";
 export default {
-    props: ['project', 'billing', 'billing_rate', 'budget', 'remaining_budget', 'project_teams_count'],
+    props: ['project'],
     data: function () {
         return {
         mobileMenu: true,

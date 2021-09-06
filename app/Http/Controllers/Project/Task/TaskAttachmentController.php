@@ -14,6 +14,7 @@ use App\Models\Project\Task\TaskAttachment;
 use Str;
 use Auth;
 use Carbon\Carbon;
+use File;
 
 class TaskAttachmentController extends Controller
 {
@@ -152,7 +153,10 @@ class TaskAttachmentController extends Controller
     public function destroy(TaskAttachment $file)
     {
         try {
-            TaskAttachment::destroy($file->id);
+            if (File::exists(public_path('storage/projects/tasks/attachments/' . $file->file_system_name))) {
+                File::delete(public_path('storage/projects/tasks/attachments/' . $file->file_system_name));
+            }
+            $file->delete();
             return redirect()->back();
         } catch (\Exception $e) {
             if (env('APP_DEBUG') == true) {

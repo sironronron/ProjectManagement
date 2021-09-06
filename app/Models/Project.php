@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 // Relationships
 use App\Models\ProjectCategory;
 use App\Models\Project\ProjectTeam;
+use App\Models\Project\ProjectTask;
 use App\Models\Client\Client;
 use App\Models\User;
 
@@ -75,5 +76,9 @@ class Project extends Model
 
     public function teams () {
         return $this->hasMany(ProjectTeam::class, 'project_id');
+    }
+
+    public function tasks() {
+        return $this->hasMany(ProjectTask::class, 'project_id');
     }
 }

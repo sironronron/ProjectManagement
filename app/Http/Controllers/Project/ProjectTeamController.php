@@ -108,7 +108,7 @@ class ProjectTeamController extends Controller
             $project_recent_activity = new ProjectRecentActivityController;
             $project_recent_activity->store($data);
 
-            return redirect()->route('projects.show', $project->unique_id)->with('success', 'Invited new team! ' . $team->name);
+            return redirect()->route('projects.show.teams', [$project->unique_id])->with('success', 'Invited new team! ' . $team->name);
         } catch (\Exception $e) {
             if (env('APP_DEBUG') == true) {
                 dd($e);
@@ -125,9 +125,42 @@ class ProjectTeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Project $project, $project_team_id)
     {
-        //
+        $project_teams = ProjectTeam::where('project_id', $project->id)
+            ->with('team')
+            ->paginate(10);
+
+        $project_teams->getCollection()->transform(function ($query) {
+            $query->member_count = $query->team->allUsers()->count();
+            $query->members = $query->team->allUsers();
+    
+            return $query;
+        });
+
+        $project_team = ProjectTeam::where('id', $project_team_id)
+            ->with('team')
+            ->first();
+
+
+        $members = $project_team->team->allUsers();
+
+        $members->collect($members)->map(function ($query) {
+            $query->team = $query->currentTeam;
+
+            if (\Cache::has('user-is-online-' . $query->id)) {
+                $query->status = "Active";
+            } else {
+                $query->status = 'Offline';
+            }
+        });
+
+        return Inertia::render('Project/Show/Teams/Show', [
+            'project' => $project,
+            'project_team' => $project_team,
+            'project_teams' => $project_teams,
+            'members' => $members
+        ]);
     }
 
     /**
@@ -159,8 +192,22 @@ class ProjectTeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ProjectTeam $project_team)
     {
-        //
+        try {
+            $project = Project::where('id', $project_team->project_id)
+                ->select('id', 'unique_id')
+                ->first();
+
+            $project_team->delete();
+            return redirect()->route('projects.show.teams', $project->unique_id)->with('success', 'Team removed!');
+        } catch (\Exception $e) {
+            if (env('APP_DEBUG') == true) {
+                dd($e);
+            }
+
+            \Log::error($e);
+            return redirect()->back()->with('failed', 'Something went wrong!');
+        }
     }
 }

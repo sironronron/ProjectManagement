@@ -59,7 +59,7 @@ class ProjectMilestoneController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:50',
-            'order_by' => 'required|unique:project_milestones,order_by'
+            'order_by' => 'required'
         ]);
 
         try {

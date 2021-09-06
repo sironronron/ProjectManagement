@@ -48,28 +48,28 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(project, key) in projects.data" :key="key" class="cursor-pointer hover:bg-gray-100">
-                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
                                         <inertia-link :href="route('projects.show', project.unique_id)">
                                             <div class="flex items-center">
                                                 <div class="w-10 h-10">
                                                     <img class="w-full h-full" src="https://cdn.tuk.dev/assets/templates/olympus/projects.png">
                                                 </div>
                                                 <div class="pl-4">
-                                                    <p class="font-medium font-semibold">{{ project.name }}</p>
-                                                    <p class="text-xs leading-3 text-gray-600 pt-2">{{ project.client.company_name }}</p>
+                                                    <p>{{ project.name }}</p>
+                                                    <p class="text-xs leading-3 text-gray-600 mt-1">{{ project.client.company_name }}</p>
                                                 </div>
                                             </div>
                                         </inertia-link>
                                     </td>
                                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-                                        <p class="text-sm font-medium leading-none text-gray-800">0%</p>
+                                        <p class="text-sm font-medium leading-none text-gray-800">{{ project.progress }}%</p>
                                         <div class="w-24 h-3 bg-gray-100 rounded-full mt-2">
-                                            <div class="w-20 h-3 bg-green-300 rounded-full"></div>
+                                            <div class="h-3 bg-green-500 rounded-full" :style="`width: ${project.progress}%`"></div>
                                         </div>
                                     </td>
                                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <p class="font-medium">0/0</p>
-                                        <p class="text-xs leading-3 text-gray-600 mt-2">0 tasks pending</p>
+                                        <p class="font-medium">{{ project.completed_tasks }} / {{ project.tasks_count }}</p>
+                                        <p class="text-xs leading-3 text-gray-600 mt-2">{{ project.pending_tasks }} tasks pending</p>
                                     </td>
                                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         <p class="font-medium">{{ project.budget }}</p>

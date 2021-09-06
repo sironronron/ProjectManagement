@@ -139,7 +139,7 @@ class ChecklistController extends Controller
     {
         try {
             $item->status = !$item->status;
-            $item->update();
+            $item->save();
 
             return redirect()->back();
         } catch (\Exception $e) {
@@ -147,6 +147,7 @@ class ChecklistController extends Controller
                 dd($e);
             }
 
+            \Log::error($e);
             return redirect()->back()->with('failed', 'Something went wrong!');
         }
     }

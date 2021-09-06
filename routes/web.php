@@ -15,6 +15,7 @@ use App\Http\Controllers\Project\ProjectTaskStatusController;
 use App\Http\Controllers\Project\Task\ChecklistController;
 use App\Http\Controllers\Project\Task\TaskAttachmentController;
 use App\Http\Controllers\Project\Task\TaskCommentController;
+use App\Http\Controllers\Project\Task\ProjectTaskTimerController;
 
 // Clients
 use App\Http\Controllers\Client\ClientController;
@@ -87,6 +88,12 @@ Route::group(['middleware' => 'auth:sanctum', 'verified'], function () {
             // Create
             Route::get('/{project}/create', [ProjectTeamController::class, 'create'])->name('projects.create.teams');
             Route::post('/store', [ProjectTeamController::class, 'store'])->name('projects.store.teams');
+
+            // Show
+            Route::get('/{project}/show/{project_team}/team', [ProjectTeamController::class, 'show'])->name('projects.show.team.members');
+
+            // Delete
+            Route::delete('/{project_team}/remove', [ProjectTeamController::class, 'destroy'])->name('projects.delete.team');
         });
 
         // Project Milestones
@@ -136,15 +143,35 @@ Route::group(['middleware' => 'auth:sanctum', 'verified'], function () {
             Route::get('/{project}/show/{task}/view', [ProjectTaskController::class, 'show'])->name('projects.view.tasks');
 
             // Edit 
-            Route::get('/task-status/{project}/edit/{project_task_status}', [ProjectTaskStatusController::class, 'edit'])->name('projects.edit.task_status');
-            Route::put('/task-status/{project}/edit/{project_task_status}/update', [ProjectTaskStatusController::class, 'update'])->name('projects.update.task_status');
-            
+                // Update Task Assignees
+                Route::put('/task-assignees/edit/{project_task}/update', [ProjectTaskController::class, 'update_assignees'])->name('projects.edit.task_assignees.update');
+
+                // Task Status
+                Route::get('/task-status/{project}/edit/{project_task_status}', [ProjectTaskStatusController::class, 'edit'])->name('projects.edit.task_status');
+                Route::put('/task-status/{project}/edit/{project_task_status}/update', [ProjectTaskStatusController::class, 'update'])->name('projects.update.task_status');
+
+
             // Update Task 
+            Route::put('/{project_task}/update/completed', [ProjectTaskController::class, 'update_completed'])->name('projects.update.task.completed');
+
                 // Description
                 Route::put('/{project_task}/update/description', [ProjectTaskController::class, 'update_description'])->name('projects.update.tasks.description');
+                // Task Settings
+                Route::put('/{project_task}/update/start_date', [ProjectTaskController::class, 'update_start_date'])->name('projects.update.tasks.start_date');
+                Route::put('/{project_task}/update/due_date', [ProjectTaskController::class, 'update_due_date'])->name('projects.update.tasks.due_date');
+                Route::put('/{project_task}/update/status_id', [ProjectTaskController::class, 'update_status'])->name('projects.update.tasks.status');
+                Route::put('/{project_task}/update/priority', [ProjectTaskController::class, 'update_priority'])->name('projects.update.tasks.priority');
+                Route::put('/{project_task}/update/client_visibility', [ProjectTaskController::class, 'update_client_visibility'])->name('projects.update.tasks.client_visibility');
+                Route::put('/{project_task}/update/milestone', [ProjectTaskController::class, 'update_milestone'])->name('projects.update.tasks.milestone');
+                Route::put('/{project_task}/update/archiving', [ProjectTaskController::class, 'update_archive'])->name('projects.update.tasks.archive');
 
             // Delete
             Route::delete('/task-status/{status}', [ProjectTaskStatusController::class, 'destroy'])->name('projects.delete.task_status');
+            Route::delete('/{project_task}/delete', [ProjectTaskController::class, 'destroy'])->name('projects.delete.task');
+        
+            // Timer
+            Route::post('/{project_task}/start/timer', [ProjectTaskTimerController::class, 'store'])->name('projects.tasks.start.timer');
+            Route::put('/{project_task}/stop/timer', [ProjectTaskTimerController::class, 'stop'])->name('projects.tasks.stop.timer');
         });
     });
 

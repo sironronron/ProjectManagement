@@ -11,7 +11,7 @@
                     <label class="flex items-center">
                         <div>
                             <jet-checkbox
-                                name="notification_new_project"
+                                name="checklist"
                                 :checked="item.status == 1 ? true : false"
                                 @click="check(item)"
                             />
@@ -131,11 +131,13 @@ export default {
 
     methods: {
         check(item) {
-            this.$inertia.put(
+            this.$inertia.post(
                 route("projects.store.checklist.item_check", item.unique_id),
                 {
-                    _method: 'PUT',
-                    preserveScroll: false,
+                    _method: "PUT",
+                },
+                {
+                    preserveScroll: true,
                 }
             );
         },
@@ -145,7 +147,7 @@ export default {
                 _method: "PUT",
                 errorBag: "updateItem",
                 preserveScroll: true,
-                onSuccess: () => this.updatingItem = false
+                onSuccess: () => (this.updatingItem = false),
             });
         },
 

@@ -11,6 +11,9 @@ use App\Models\Project;
 use App\Models\User;
 use App\Models\Project\ProjectMilestone;
 use App\Models\Project\ProjectTaskStatus;
+use App\Models\Project\Task\TaskChecklist;
+use App\Models\Project\Task\TaskAttachment;
+use App\Models\Project\Task\ProjectTaskTimer;
 
 class ProjectTask extends Model
 {
@@ -52,5 +55,25 @@ class ProjectTask extends Model
 
     public function status () {
         return $this->belongsTo(ProjectTaskStatus::class, 'status_id');
+    }
+
+    public function checklists () {
+        return $this->hasMany(TaskChecklist::class);
+    }
+
+    public function attachments () {
+        return $this->hasMany(TaskAttachment::class);
+    }
+
+    public function timers () {
+        return $this->hasMany(ProjectTaskTimer::class);
+    }
+
+    public function timer () {
+        return $this->hasOne(ProjectTaskTimer::class, 'task_id');
+    }
+
+    public function scopeMine ($query) {
+        return $query->whereUserId(auth()->user()->id);
     }
 }

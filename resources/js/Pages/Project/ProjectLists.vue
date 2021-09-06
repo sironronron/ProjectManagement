@@ -334,11 +334,12 @@
                                     text-gray-800
                                 "
                             >
-                                0%
+                                {{ project.progress }}%
                             </p>
                             <div class="w-24 h-3 bg-gray-100 rounded-full mt-2">
                                 <div
-                                    class="w-20 h-3 bg-green-300 rounded-full"
+                                    class="h-3 bg-green-300 rounded-full"
+                                    :style="`width: ${project.progress}%`"
                                 ></div>
                             </div>
                         </td>
@@ -353,9 +354,9 @@
                                 p-4
                             "
                         >
-                            <p class="font-medium">0/0</p>
+                            <p class="font-medium">{{ project.completed_tasks }} / {{ project.tasks_count }}</p>
                             <p class="text-xs leading-3 text-gray-600 mt-2">
-                                0 tasks pending
+                                {{ project.pending_tasks }} tasks pending
                             </p>
                         </td>
                         <td

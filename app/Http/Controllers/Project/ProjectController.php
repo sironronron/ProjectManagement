@@ -31,6 +31,7 @@ use App\Models\Project\ProjectMilestone;
 use App\Models\Project\ProjectTaskStatus;
 use App\Models\Project\ProjectTask;
 use App\Models\Project\ProjectTaskAssignedTo;
+use App\Models\Project\Task\ProjectTaskTimer;
 
 class ProjectController extends Controller
 {
@@ -41,9 +42,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::with(['category', 'client'])
-        ->latest()
-        ->paginate(10);
+        $projects = Project::with(['category' => function ($query) { $query->select('name', 'id'); }, 'client' => function ($query) { $query->select('company_name', 'id'); }])
+            ->withCount('tasks')
+            ->latest()
+            ->paginate(10);
 
         $projects->getCollection()->transform(function ($query) {
             if ($query->unscheduled != true) {
@@ -53,34 +55,75 @@ class ProjectController extends Controller
                 $length = $end->diffInDays($current);
 
                 $query->remaining_days = $length;
+            }
+            
+            $query->budget = '₱' . number_format($query->budget, 2);
 
-                $query->budget = '₱' . number_format($query->budget, 2);
-                $query->remaining_budget = '₱' . number_format($query->remaining_budget, 2);
+            $project_teams = ProjectTeam::where('project_id', $query->id)
+                ->distinct()
+                ->get()
+                ->map(function ($query) {
+                    $query->members = $query->team->allUsers();
+                    return $query;
+                });
+            
+            $project_teams = $project_teams->pluck('members')->toArray();
 
-                $project_teams = ProjectTeam::where('project_id', $query->id)
-                    ->distinct()
-                    ->get()
-                    ->map(function ($query) {
-                        $query->members = $query->team->allUsers();
-                        return $query;
-                    });
-                
-                $project_teams = $project_teams->pluck('members')->toArray();
+            $user_members = [];
 
-                $user_members = [];
-
-                foreach ($project_teams as $team) {
-                    foreach ($team as $member) {
-                        if (!in_array($member, $user_members)) {
-                            $user_members[] = $member;
-                        }
+            foreach ($project_teams as $team) {
+                foreach ($team as $member) {
+                    if (!in_array($member, $user_members)) {
+                        $user_members[] = $member;
                     }
                 }
-
-                $query->members = $user_members;
-
-                return $query;
             }
+
+            $query->members = $user_members;
+            $query->completed_tasks = $query->tasks->where('completed', 1)->count();
+            $query->pending_tasks = $query->tasks->where('completed', 0)->count();
+
+            if ($query->tasks->count() != 0) {
+                $query->progress = ($query->completed_tasks / $query->tasks->count()) * 100;
+            }
+
+            else {
+                $query->progress = 0;
+            }
+
+            $total_time_spent_hours = 0;
+
+            $project_task_timers = ProjectTaskTimer::where('project_id', $query->id)
+                ->where('stopped_at', '!=', null)
+                ->select('project_id', 'started_at', 'stopped_at')
+                ->get();
+
+            foreach ($project_task_timers as $timer) {
+                $started_at = $timer->started_at;
+                $stopped_at = $timer->stopped_at;
+
+                $diff = $stopped_at->diff($started_at);
+
+                $hours = $diff->h;
+                $hours = $hours + ($diff->days * 24);
+
+                $total_time_spent_hours += $hours;
+            }
+
+            $total_time = $total_time_spent_hours;
+            $total_remaining_budget = $query->remaining_budget;
+
+            if ($query->billing_rate == 'hourly') {
+                $total_remaining_budget -= $total_time * $query->billing;
+            }
+    
+            else {
+                $total_remaining_budget -= $query->billing;
+            }
+
+            $query->remaining_budget = '₱' . number_format($total_remaining_budget, 2);
+
+            return $query;
         });
 
         return Inertia::render('Project/Index', [
@@ -232,17 +275,18 @@ class ProjectController extends Controller
     public function show($unique_id)
     {
         $project = Project::where('unique_id', $unique_id)
-            ->with(['client', 'category', 'assigned_to', 'project_manager'])
+            ->with(['client' => function ($query) { $query->select('id', 'company_name', 'address', 'company_photo'); } , 'category' => function ($query) { $query->select('name', 'id'); } , 'assigned_to' => function ($query) { $query->select('name', 'id', 'profile_photo_path'); } , 'project_manager' => function ($query) { $query->select('name', 'id', 'profile_photo_path'); } ])
             ->first();
         
         $billing = '₱' . number_format($project->billing, 2);
         $billing_rate = ucfirst(str_replace('_', ' ', $project->billing_rate));
 
         $budget = '₱' . number_format($project->budget, 2);
-        $remaining_budget = '₱' . number_format($project->remaining_budget, 2);
 
         $recent_activities = ProjectRecentActivity::where('project_id', $project->id)
-            ->with(['user'])
+            ->with(['user' => function ($query) {
+                $query->select('name', 'id', 'profile_photo_path');
+            }])
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
@@ -258,10 +302,42 @@ class ProjectController extends Controller
         $project_milestones_count = ProjectMilestone::where('project_id', $project->id)
             ->count();
 
-        $clients = ClientUser::where('client_id', $project->client_id)
-            ->with(['user'])
+        $project_tasks_count = ProjectTask::where('project_id', $project->id)
+            ->where('completed', 0)
+            ->count();
+
+        $total_time_spent_hours = 0;
+
+        $project_task_timers = ProjectTaskTimer::where('project_id', $project->id)
+            ->where('stopped_at', '!=', null)
+            ->select('project_id', 'started_at', 'stopped_at')
             ->get();
-            
+
+        foreach ($project_task_timers as $timer) {
+            $started_at = $timer->started_at;
+            $stopped_at = $timer->stopped_at;
+
+            $diff = $stopped_at->diff($started_at);
+
+            $hours = $diff->h;
+            $hours = $hours + ($diff->days * 24);
+
+            $total_time_spent_hours += $hours;
+        }
+
+        $total_time = $total_time_spent_hours;
+        $total_remaining_budget = $project->remaining_budget;
+
+        if ($project->billing_rate == 'hourly') {
+            $total_remaining_budget -= $total_time * $project->billing;
+        }
+
+        else {
+            $total_remaining_budget -= $project->billing;
+        }
+        
+        $remaining_budget = '₱' . number_format($total_remaining_budget, 2);
+        
         return Inertia::render('Project/Show/Index', [
             'project' => $project,
             'billing' => $billing,
@@ -271,7 +347,8 @@ class ProjectController extends Controller
             'recent_activities' => $recent_activities,
             'project_teams_count' => $project_teams_count,
             'project_milestones_count' => $project_milestones_count,
-            'clients' => $clients
+            'project_tasks_count' => $project_tasks_count,
+            'total_time' => $total_time
         ]);
     }
 
@@ -363,6 +440,7 @@ class ProjectController extends Controller
             ->first();
 
         $project_task_statuses = ProjectTaskStatus::where('project_id', $project->id)
+            ->orderBy('order_by', 'asc')
             ->get();
 
         $project_tasks = ProjectTask::where('project_id', $project->id)

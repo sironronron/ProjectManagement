@@ -15,6 +15,8 @@ use App\Models\Client\ClientNote;
 // Project Models
 use App\Models\Project;
 use App\Models\Project\ProjectTeam;
+use App\Models\Project\Task\ProjectTaskTimer;
+use App\Models\Project\Task\TaskAttachment;
 
 // Inertia
 use Inertia\Inertia;
@@ -230,34 +232,76 @@ class ClientController extends Controller
                     $length = $end->diffInDays($current);
     
                     $query->remaining_days = $length;
+                }
+
+                $query->budget = '₱' . number_format($query->budget, 2);
     
-                    $query->budget = '₱' . number_format($query->budget, 2);
-                    $query->remaining_budget = '₱' . number_format($query->remaining_budget, 2);
-    
-                    $project_teams = ProjectTeam::where('project_id', $query->id)
-                        ->distinct()
-                        ->get()
-                        ->map(function ($query) {
-                            $query->members = $query->team->allUsers();
-                            return $query;
-                        });
+                $project_teams = ProjectTeam::where('project_id', $query->id)
+                    ->distinct()
+                    ->get()
+                    ->map(function ($query) {
+                        $query->members = $query->team->allUsers();
+                        return $query;
+                    });
                     
-                    $project_teams = $project_teams->pluck('members')->toArray();
+                $project_teams = $project_teams->pluck('members')->toArray();
     
-                    $user_members = [];
+                $user_members = [];
     
-                    foreach ($project_teams as $team) {
-                        foreach ($team as $member) {
-                            if (!in_array($member, $user_members)) {
-                                $user_members[] = $member;
-                            }
+                foreach ($project_teams as $team) {
+                    foreach ($team as $member) {
+                        if (!in_array($member, $user_members)) {
+                            $user_members[] = $member;
                         }
                     }
-    
-                    $query->members = $user_members;
-    
-                    return $query;
                 }
+    
+                $query->members = $user_members;
+                $query->completed_tasks = $query->tasks->where('completed', 1)->count();
+                $query->pending_tasks = $query->tasks->where('completed', 0)->count();
+                $query->tasks_count = $query->tasks->count();
+                
+                if ($query->tasks->count() != 0) {
+                    $query->progress = ($query->completed_tasks / $query->tasks->count()) * 100;
+                }
+
+                else {
+                    $query->progress = 0;
+                }
+
+                $total_time_spent_hours = 0;
+
+                $project_task_timers = ProjectTaskTimer::where('project_id', $query->id)
+                    ->where('stopped_at', '!=', null)
+                    ->select('project_id', 'started_at', 'stopped_at')
+                    ->get();
+
+                foreach ($project_task_timers as $timer) {
+                    $started_at = $timer->started_at;
+                    $stopped_at = $timer->stopped_at;
+
+                    $diff = $stopped_at->diff($started_at);
+
+                    $hours = $diff->h;
+                    $hours = $hours + ($diff->days * 24);
+
+                    $total_time_spent_hours += $hours;
+                }
+
+                $total_time = $total_time_spent_hours;
+                $total_remaining_budget = $query->remaining_budget;
+
+                if ($query->billing_rate == 'hourly') {
+                    $total_remaining_budget -= $query->billing * $total_time;
+                }
+        
+                else {
+                    $total_remaining_budget -= $query->billing;
+                }
+
+                $query->remaining_budget = '₱' . number_format($total_remaining_budget, 2);
+    
+                return $query;
             });
 
         return Inertia::render('Client/Show/Projects', [
@@ -278,8 +322,17 @@ class ClientController extends Controller
             ->with(['category', 'owner'])
             ->first();
 
+        $project_ids = Project::where('client_id', $client->id)
+            ->pluck('id');
+
+        $files = TaskAttachment::whereIn('project_id', $project_ids)
+            ->latest()
+            ->with('user')
+            ->get();
+
         return Inertia::render('Client/Show/Files', [
-            'client' => $client
+            'client' => $client,
+            'files' => $files
         ]);
     }
 
